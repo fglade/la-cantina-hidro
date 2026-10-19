@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="deslinde_original" id="deslinde_original">
+	<SimpleField name="descriptio" type="string"></SimpleField>
+	<SimpleField name="timestamp" type="string"></SimpleField>
+	<SimpleField name="begin" type="string"></SimpleField>
+	<SimpleField name="end" type="string"></SimpleField>
+	<SimpleField name="altitudeMo" type="string"></SimpleField>
+	<SimpleField name="tessellate" type="float"></SimpleField>
+	<SimpleField name="extrude" type="float"></SimpleField>
+	<SimpleField name="visibility" type="float"></SimpleField>
+	<SimpleField name="drawOrder" type="float"></SimpleField>
+	<SimpleField name="icon" type="string"></SimpleField>
+</Schema>
+<Folder><name>deslinde_original</name>
+  <Placemark>
+	<name>Track 0001</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#deslinde_original">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-72.588946183916,-46.0573673125777,0 -72.580904650984,-46.0610325418172,0 -72.5833965379884,-46.0633363777716,0 -72.5836460715476,-46.0633602937455,0 -72.5850668930906,-46.0648937971252,0 -72.586271767728,-46.0653676475262,0 -72.5871387528524,-46.065909989104,0 -72.5878535073554,-46.0664070179023,0 -72.5890516802143,-46.0671153586022,0 -72.5923825913663,-46.0679696832304,0 -72.5934467563898,-46.0679858558966,0 -72.5959026229696,-46.0666435901789,0 -72.5973199968465,-46.0670639944782,0 -72.5982159926143,-46.0673000012252,0 -72.5982295030895,-46.0672713792897,0 -72.5980864798552,-46.0671289811173,0 -72.5981487058114,-46.0668930327618,0 -72.5983121757429,-46.0666223719028,0 -72.5986543387733,-46.0661909103761,0 -72.5989465363388,-46.0659784618379,0 -72.5989798191646,-46.065769740147,0 -72.5992021581165,-46.0651558099535,0 -72.5994207218834,-46.0630450679248,0 -72.5991642135867,-46.062906885351,0 -72.5987661784305,-46.0625284704271,0 -72.5987369642194,-46.0611088995744,0 -72.5984450206444,-46.0607467950051,0 -72.5984127988569,-46.0606057937753,0 -72.5983324403228,-46.0602859940383,0 -72.5943923288548,-46.059771728479,0 -72.5935025161546,-46.0591943735829,0 -72.5932409472578,-46.0593457805305,0 -72.5925954771111,-46.0591004400186,0 -72.5911233206916,-46.0587950241084,0 -72.5906191019527,-46.0584803161713,0 -72.5904883874583,-46.0579468806722,0 -72.5899273344136,-46.0578403844816,0 -72.588946183916,-46.0573673125777,0</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+</Folder>
+</Document></kml>

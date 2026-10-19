@@ -1,0 +1,37 @@
+# Entornos locales y cachés
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
+
+# Configuración local, credenciales y repositorio independiente de Sites
+.env
+.env.*
+!.env.example
+.codex/
+.agents/
+.openai/
+sites/
+
+# Levantamiento raster y archivos originales voluminosos
+*.tif
+*.tiff
+*.tfw
+*.aux.xml
+*.dxf
+*.pdf
+*.qmd
+*.qpj
+
+# Paquetes y archivos de verificación regenerables
+*.zip
+*.tar
+*.tar.gz
+outputs/viewer-scripts.js
+outputs/run.log
+outputs/publicacion.json
+

@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "propuesta",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Bocatoma" }, "geometry": { "type": "Point", "coordinates": [ -72.591001305496604, -46.06758602371039 ] } },
+{ "type": "Feature", "properties": { "name": "Cámara de carga" }, "geometry": { "type": "Point", "coordinates": [ -72.591072434366438, -46.067607527876433 ] } },
+{ "type": "Feature", "properties": { "name": "Turbina / restitución" }, "geometry": { "type": "Point", "coordinates": [ -72.591346864592595, -46.067704049253379 ] } },
+{ "type": "Feature", "properties": { "name": "Aducción" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.591001305496604, -46.06758602371039 ], [ -72.591072434366438, -46.067607527876433 ] ] } },
+{ "type": "Feature", "properties": { "name": "Tubería de presión" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.591072434366438, -46.067607527876433 ], [ -72.591093150615535, -46.067616055139212 ], [ -72.591170663539259, -46.067617689683573 ], [ -72.59119571844208, -46.067636219064759 ], [ -72.591247393746528, -46.067637308720833 ], [ -72.591272448684336, -46.067655838085805 ], [ -72.591324124010029, -46.067656927707532 ], [ -72.591349178982824, -46.067675457056311 ], [ -72.591346864592595, -46.067704049253379 ] ] } }
+]
+}
