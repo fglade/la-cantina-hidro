@@ -1,0 +1,9 @@
+{
+  "center_utm": [
+    685938.0434016668,
+    4896168.1796122
+  ],
+  "radius_m": 25.983931873540556,
+  "boundary_vertices_matched": 60,
+  "source": "Arcos de linderos de lotes; no utiliza geometría CAMINOS"
+}

@@ -1,117 +1,185 @@
-# La Cantina — Prefactibilidad hidroeléctrica geoespacial
+# La Cantina · acceso nuevo y microhidro para verano
 
-Revisión 2 — 19 de octubre de 2026. **Arroyo norte incluido; cauces y curvas sin recorte predial.** Estudio preliminar con herramientas gratuitas y datos proporcionados por el propietario. Sin presupuesto de obras ni estudio de rentabilidad.
+Revisión 3 · 19 de octubre de 2026. Propuesta conceptual con herramientas gratuitas. [Visor público](https://la-cantina-hidro.craftysmile14.chatgpt.site) · [Repositorio](https://github.com/fglade/la-cantina-hidro).
 
-Esta revisión sustituye la selección anterior de 13,23 m de salto. El deslinde se usa como referencia para identificar obras dentro/fuera, no como límite de exclusión del recurso. Se priorizan los arroyos permanentes; las quebradas no permanentes se conservan sólo en última prioridad, según la aclaración del propietario de que acceder al agua requeriría perforar.
+**Propuesta eléctrica: 1 kW continuo, batería nominal de 5,12 kWh e inversor de 3 kW compartidos para 2–3 casas de consumo básico durante unos 60 días de verano.** Primera alternativa a aforar: **S1, arroyo norte**, con unos 48,7 m de tubería. El alimentador a rotonda eleva el costo: energía S1 **$12,0–22,8 millones CLP**, con 25% de contingencia y sin camino ni servidumbres/tasas específicas.
 
-## Resultado principal
+**El acceso vial es otra escala de inversión.** Se propone un corredor nuevo de **660 m**, desde la desembocadura del arroyo del límite sur hasta la rotonda inferida del loteo. Rasante de cálculo ≤10%, pero con movimiento de tierras y afectación de lotes. Presupuesto de orden de magnitud: **$116,6–225,6 millones**, con 30% de contingencia. No es un límite superior ni una cotización. S1 + camino: **$128,6–248,4 millones** bajo estos alcances. No corresponde presentar todo como una instalación barata y sin maquinaria.
 
-Se identifica la alternativa **C2-1-1 en el Arroyo norte (ID 2)**, reportado como permanente por el propietario. Presenta **172,91 m de salto bruto**, 6,0 m de aducción y **720,0 m de tubería de presión 3D** (684,8 m en planta). La ruta prioriza linderos y caminos y no cruza interiores de lotes a más de 4 m del lindero. Las cotas y geometría requieren verificación de campo; no es un emplazamiento de obra aprobado ni una solución óptima global.
+## Alcance y cambio de criterio
 
-**Obras exteriores al deslinde original:** 374,0 m de tubería en planta (54,6% de la ruta) y 6,0 m de aducción. El visor marca estos tramos en rojo discontinuo; los puntos indican individualmente si quedan dentro o fuera. La propuesta requiere validar acceso y tenencia en esos sectores, además de los antecedentes de uso del agua. Incluirlos en la evaluación no acredita disponibilidad para construir.
+Se excluye por completo la geometría CAMINOS entregada como apoyo de trazado, costo o evidencia de obra existente. Sólo se usan los diez polígonos numerados para el loteo. Los archivos originales se preservan por trazabilidad. La rotonda se localiza ajustando un círculo a 60 vértices de arcos de linderos de lotes: radio inferido 25,98 m; no se usa el polígono CAMINOS.
 
-La subdivisión contiene diez lotes y un camino vehicular, con 14,49 ha de lotes. El deslinde original abarca 104,57 ha. La cobertura DTM calculada a 2 m alcanza **50,6% del deslinde**. El área DTM válida total analizada es 90,73 ha, incluyendo topografía exterior al predio. Se conservan las 512 curvas completas y los seis cauces; no se extrapola potencial donde falta DTM.
+Se mantienen completos los seis cauces y las 512 curvas, incluidos el arroyo norte y la topografía exterior al deslinde. Arroyos permanentes según el propietario: prioridad 1. Quebradas no permanentes: última prioridad; el propietario indica que habría que perforar para alcanzar el agua. No se les atribuye generación firme ni se propone perforar para esta microcentral.
 
-## Inventario completo de cauces
+El [apéndice de potencial amplio](APENDICE_POTENCIAL.md) conserva los escenarios originales de 10/25/50/100 L/s, recalculados sin preferencia por caminos hipotéticos. Esa selección de mayor salto no es el proyecto pequeño recomendado aquí.
 
-| ID | Cauce | Prioridad | Longitud total (m) | Longitud con DTM (m) | Cobertura lineal DTM |
-|---:|---|---:|---:|---:|---:|
-| 1 | Arroyo 1 | 1 | 2.012,1 | 668,0 | 33,2% |
-| 2 | Arroyo norte | 1 | 1.513,1 | 648,5 | 42,9% |
-| 3 | Quebrada 3 | 3 | 421,3 | 421,3 | 100,0% |
-| 4 | Quebrada 4 | 3 | 801,8 | 801,8 | 100,0% |
-| 5 | Quebrada 5 | 3 | 462,8 | 462,8 | 100,0% |
-| 6 | Arroyo 6 | 1 | 797,3 | 0,0 | 0,0% |
+## Demanda y tamaño sugerido
 
-El arroyo norte corresponde al ID 2. El ID 6 también queda visible y registrado como permanente, pero sin topografía suficiente para calcular salto o potencia. Las longitudes con DTM se estiman en un muestreo de unos 2 m; no indican que todo el cauce esté levantado.
+Supuesto de trabajo, no inventario de aparatos: 1,5–3 kWh/casa/día para iluminación LED, refrigeración eficiente, comunicaciones y equipos pequeños. Tres casas: 4,5–9 kWh/día. Sin calefacción eléctrica, termo, cocina eléctrica ni carga de vehículos. La ubicación y simultaneidad de las casas aún no se conocen.
 
-## Coordenadas de referencia (EPSG:4326)
+| Generación continua | Energía bruta diaria | Útil diaria supuesta | Útil en 30 días | Útil en 60 días |
+|---:|---:|---:|---:|---:|
+| 0,5 kW | 12 kWh | 8,64 kWh | 259,2 kWh | 518,4 kWh |
+| 1,0 kW | 24 kWh | 17,28 kWh | 518,4 kWh | 1.036,8 kWh |
 
-| Elemento | Latitud | Longitud | Cota terreno DTM (m) |
+Útil = P × horas × 0,80 disponibilidad × 0,90 almacenamiento/distribución, ambos supuestos. No es una predicción de caudal de verano. No sumar otra vez esos descuentos al comparar con la demanda. 0,5 kW puede quedar justo para tres casas; 1 kW da margen para cargas moderadas y recarga. No se garantiza la demanda sin medir caudal y levantar consumos.
+
+Batería LiFePO4: 5,12 kWh nominales, unos 3,69 kWh útiles adoptando 80% de descarga y 90% de entrega; no ofrece un día entero a la demanda superior. Inversor senoidal de 3 kW **compartidos**, no por casa. Su potencia debe confirmarse con arranque de refrigeradores y gestión de simultaneidad. No transportar 1 kW a 48 V por cientos de metros: la arquitectura de generación, regulación y transporte debe definirla el proyectista eléctrico.
+
+## Tres pares prioritarios para aforo y visita
+
+Todos dimensionados aquí a **1 kW eléctrico** con η global 0,65. Son tres alternativas, no tres instalaciones acumulativas.
+
+| Par / cauce | Hb m | Tubería 3D m | Hn m | Q útil L/s | HDPE exterior / interior mm | Tubería exterior al deslinde, planta m |
+|---|---:|---:|---:|---:|---:|---:|
+| S1 · Arroyo norte | 26,1 | 48,7 | 24,3 | 6,46 | 90 / 73,6 | 40,0 |
+| S2 · Arroyo norte | 19,7 | 54,0 | 18,4 | 8,54 | 110 / 90,0 | 49,8 |
+| S3 · Arroyo límite sur | 21,6 | 46,8 | 20,7 | 7,58 | 110 / 90,0 | 39,7 |
+
+**S1:** primer candidato por menor salto, tubo corto y menor provisión de cable que las otras alternativas seleccionadas. **S2:** reserva en el norte, menor salto y más caudal necesario. **S3:** comparación en el arroyo sur; mayor distancia eléctrica estimada a la rotonda. El ranking usa longitudes de tubo/cable, presión y exterioridad; no demuestra óptimo global ni acceso fácil para construir. La accesibilidad de obras y costos de servidumbre no están acreditados.
+
+**Los tres pares están fuera del deslinde original.** Estudiar el arroyo norte no concede acceso ni uso del terreno. No comprar equipos antes de comprobar acceso/tenencia y caudal derivable en verano después de reservas y otros usos.
+
+| Par | Referencia | Latitud | Longitud | Cota terreno m |
+|---|---|---:|---:|---:|
+| S1 | Bocatoma | -46.0592790 | -72.5961557 | 432,5 |
+| S1 | Turbina/restitución | -46.0593757 | -72.5966535 | 406,4 |
+| S2 | Bocatoma | -46.0586586 | -72.5948386 | 455,6 |
+| S2 | Turbina/restitución | -46.0590179 | -72.5952235 | 436,0 |
+| S3 | Bocatoma | -46.0680220 | -72.5930110 | 395,5 |
+| S3 | Turbina/restitución | -46.0680297 | -72.5935243 | 373,9 |
+
+Coordenadas EPSG:4326; distancias calculadas en EPSG:32718. Los puntos son referencias sobre el cauce, no emplazamientos constructivos. Ubicar la sala en una margen segura frente a crecidas y verificar restitución. El DTM proporciona cotas de terreno, no niveles del agua; el datum vertical y alineación del cauce necesitan comprobación. El salto real puede variar.
+
+## Hidráulica compacta para S1
+
+Captación con rejilla, desarenado y venteo/cabezal que mantenga la tubería llena; sin canal de aducción ni cámara separada en esta propuesta compacta. Incorporar anclajes, cierre controlado y restitución; no modelar un azud importante como si fuera una simple manguera.
+
+Hb = 432,53 − 406,39 = **26,14 m**. Con HDPE PE100 PN16 SDR11 idealizado de diámetro exterior 90 mm e interior **73,64 mm** (2,90 pulgadas interiores), Q = 6,456 L/s y L 3D = 48,75 m:
+
+- Hazen–Williams: hf = 10,67 L Q^1,852 / (145^1,852 D^4,8704) = **1,496 m**, con Q en m³/s y D interior en m.
+- Pérdidas locales: hm = K v²/(2g), K=3 supuesto → **0,351 m**.
+- Hn = Hb − hf − hm = **24,291 m**; pérdidas totales 7,1%, menores al 10% adoptado.
+- P = 9,81 × 0.006456 × 24.291 × 0,65 ≈ **1 kW**. El caudal es requisito de diseño, no dato aforado.
+
+También se calculan planes de 0,5 kW por sitio. Se comprueban pérdidas totales ≤10%Hb, velocidad ≤2,5 m/s y perfil preliminar bajo línea piezométrica con 0,5 m de enterramiento supuesto. Diámetro interior idealizado: validar espesor/tolerancia comercial. No se comprueban golpe de ariete, válvulas reales, enterramiento de obra ni estabilidad de laderas. La eficiencia adoptada puede ser optimista para equipos muy baratos; exigir rendimiento del conjunto en ese punto H/Q.
+
+## Propuesta de turbina y búsqueda en AliExpress
+
+Preferencia técnica: **Pelton compacta de aproximadamente 1 kW a H neto 24,3 m y Q útil 6,46 L/s**, ajustada por fabricante. Un Turgo puede ser alternativa si su curva encaja. La elección no se hace sólo por los kW del anuncio ni por el máximo caudal de otra condición de salto.
+
+El acceso automatizado directo a AliExpress fue bloqueado. Se entregan enlaces identificados mediante referencias públicas consultadas previamente, con precios históricos claramente separados de una cotización actual. **No se ha verificado variante, curva H/Q, stock, envío ni precio puesto en Chile; no hay un anuncio confirmado como compra adecuada.**
+
+- [AliExpress · generador 1/2 kW](https://www.aliexpress.com/item/1005012619584537.html): US$709,80 archivados el 16-09-2026. Preselección condicionada: no se verificó curva H/Q ni variante; no comprar aún. [Referencia consultada](https://ms.pricearchive.org/aliexpress.com/item/1005012619584537).
+- [AliExpress · compacto 300/500/1000 W](https://www.aliexpress.com/item/1005008506351365.html): Sin precio comprobado. Pedir curva para H neto 24,3 m y Q 6,46 L/s; confirmar equipo completo y regulación. [Referencia consultada](https://sv.pricearchive.org/aliexpress.com/item/1005008506351365).
+- [AliExpress · axial 1 kW](https://www.aliexpress.com/item/1005012367548289.html): US$478,62 archivados el 21-09-2026. Descartado como selección automática: no se acredita compatibilidad con 20–26 m de salto. [Referencia consultada](https://www.pricearchive.org/aliexpress.com/item/1005012367548289).
+- [AliExpress · rodete Pelton suelto](https://www.aliexpress.com/item/1005009309567283.html): US$67,32 históricos; sólo rodete. No es un sistema generador completo. No usar ese precio como costo del proyecto. [Referencia consultada](https://vi.pricearchive.org/aliexpress.com/item/1005009309567283).
+- [PowerSpout PLT · referencia técnica](https://www.powerspout.com/products/powerspout-plt): NZD 3.773,70, sin GST, flete ni importación. Pelton comercial de referencia, 1.200 W estándar. Pedir configuración y curva para el punto calculado; no garantiza 1 kW sólo por su placa. [Referencia consultada](https://www.powerspout.com/products/powerspout-plt).
+
+La ficha oficial de [PowerSpout PLT](https://www.powerspout.com/products/powerspout-plt) ofrece una referencia Pelton documentada y precio en NZD antes de GST; pedir configuración para el punto S1 y costo puesto en Chile. La alternativa [Turgo TRG](https://www.powerspout.com/pages/turgo-trg-info) declara rango de salto 2–30 m y caudales 8–16 L/s; S1 requiere menos caudal, por lo que no se adopta automáticamente. No se afirma que la potencia máxima de catálogo se alcance en este sitio.
+
+Especificación para solicitar oferta, sin contactar vendedores desde este estudio: potencia **entregada** de 1 kW a Hn24,3 m/Q6,46 L/s; curva de rendimiento a carga parcial; generador y boquillas incluidos; tensión seleccionada según transporte y cargador; 50 Hz si salida AC; regulación ante desconexión de carga, protección de sobrevelocidad y carga de desvío; repuestos, peso, dimensiones y costo final entregado en Chile. Un rodete suelto o un generador axial sin curva no satisface esa especificación.
+
+## Presupuesto eléctrico, separado del camino
+
+Montos CLP de orden de magnitud con provisiones, no ofertas. Valores publicados sólo anclan algunas partidas; obra, transporte y puesta en marcha no tienen cotización local. Las provisiones buscan contemplar IVA/logística, sin cálculo tributario definitivo. Se añade 25% a los subtotales. No se monetizan acceso a terrenos, derechos, tasas ni obras mayores imprevistas.
+
+| Sitio | Total energía $M, +25% | Cable preliminar mm² | Longitud estimada a rotonda m | Caída resistiva orientativa |
+|---|---:|---:|---:|---:|
+| S1 | 12,0–22,8 | 10 | 477 | 4,1% |
+| S2 | 12,7–24,0 | 10 | 527 | 4,5% |
+| S3 | 17,0–31,3 | 16 | 767 | 4,1% |
+
+Cable estimado = 1,25×distancia recta a rotonda; **no hay traza eléctrica levantada**. Caída a 230 V AC monofásico, 1 kW, FP1 y resistividad caliente 0,0225 Ωmm²/m. No verifica ampacidad, arranques, protecciones, puesta a tierra ni ramales a casas. El inversor estará cerca del nodo de consumo para no transportar sus picos por este alimentador; ubicación del nodo y casas pendiente. Cualquier variante DC requiere adaptar tensión, aislamiento, controlador y protecciones al generador real.
+
+### Desglose S1 de 1 kW
+
+| Partida | Cantidad | Bajo $M | Alto $M | Base |
+|---|---:|---:|---:|---|
+| Turbina + generador económico importado, puesto en Chile | 1,0 | 1,2 | 2,0 | Provisión; referencia Ali histórica, curva y flete sin confirmar |
+| Regulación hidro, carga de desvío y cargador compatible | 1,0 | 0,6 | 1,2 | Provisión; no duplicar si el kit los incluye |
+| HDPE PN16 SDR11, m comprados | 54,0 | 0,5 | 0,6 | Precio publicado elevado 19% conservador; confirmar tratamiento de IVA |
+| Válvulas, uniones, anclajes y venteo | 1,0 | 0,2 | 0,5 | Provisión |
+| Rejilla, desarenado y caseta pequeña en margen segura | 1,0 | 0,8 | 1,6 | Obra liviana condicionada a terreno y crecidas |
+| Alimentador hasta rotonda, Cu 10 mm², m estimados | 476,8 | 2,0 | 3,8 | 10 mm²: referencia RHONA sin stock; 16 mm²: provisión propia |
+| Ducto/soportes y tendido del alimentador, m estimados | 476,8 | 0,7 | 1,9 | Provisión; roca, puente o tendido aéreo especial no cubicados |
+| Batería LiFePO4 5,12 kWh nominal | 1,0 | 0,9 | 1,2 | Referencia comercial + IVA; compatibilidad BMS por confirmar |
+| Inversor senoidal 48 V, 3 kW compartidos | 1,0 | 0,4 | 0,7 | Cargador hidro aparte; no son 3 kW por casa |
+| Tablero, tierra, sobretensión y protecciones | 1,0 | 0,4 | 0,8 | Provisión |
+| Ramales básicos a 2–3 casas | 1,0 | 0,6 | 1,4 | Provisión no cubicada; casas aún no localizadas |
+| Montaje, traslados y puesta en marcha | 1,0 | 0,8 | 1,6 | Provisión sin apertura de camino |
+| Levantamiento de detalle, aforo y revisión eléctrica | 1,0 | 0,4 | 0,9 | Provisión de contratación; cálculo SIG realizado con herramientas gratuitas |
+| **Total +25% contingencia** | | **12,0** | **22,8** | |
+
+Un sistema localizado junto al arroyo, **sin** alimentador a rotonda ni ramales, se estima en $7,8–13,9 M. No resuelve casas alejadas. Reducir a 0,5 kW cambia caudal/tubo/equipo, pero no reduce proporcionalmente batería, cableado ni obras.
+
+Importación: US$1 = $1.000 CLP es supuesto presupuestario, no tipo de cambio vigente. Ejemplo US$700 + US$200 flete: $900.000 CIF; impuestos, gestión y flete interior incluidos mediante provisión global. Confirmar régimen aplicable con cotización puesta en Chile. El equipo importado presupuestado es una provisión, no el precio de un kit específico que ya cumpla la curva. Si se elige un fabricante documentado de mayor precio, sustituir esa partida completa y revisar compatibilidad, sin sumar dos generadores. No atribuir rentabilidad a sólo 60 días de uso sin comparar alternativas: pedir cotización solar con batería para la misma demanda es razonable.
+
+## Nuevo acceso para autos hasta la rotonda
+
+Origen solicitado: latitud -46.0666568, longitud -72.5981870; cota terreno 350,18 m. Destino inferido del loteo: latitud -46.0627727, longitud -72.5959570; cota 411,33 m. No se acredita continuidad desde ese inicio hacia un camino público, puente ni acceso legal.
+
+La diferencia de cota de 61,16 m exige como mínimo teórico 612 m para no exceder 10%, aun sin considerar curvas. El trazado propuesto tiene **660,1 m en planta** (663,1 m sobre rasante), con giros suavizados a **R15 m** y rasante limitada al 10% por programación lineal. No se ha diseñado acuerdo vertical: el perfil aún necesita suavizado y revisión de detalle. La pendiente no debe interpretarse como certificado de transitabilidad ni como ruta óptima.
+
+Se propone conceptualmente una vía de baja velocidad 10–15 km/h, calzada de 3,5 m, plataforma de 5 m, apartaderos por definir y base granular de 20 cm compactada. Revisar drenaje lateral, bombeo transversal, alcantarilla en la quebrada ID5 y el inicio junto al arroyo ID1; no se incluye un puente mayor comprobado. Para autos sin 4x4 son decisivos el soporte del suelo, drenajes y estado de la superficie, además de la pendiente. Se recomienda estudiar un objetivo menor de pendiente en el proyecto vial cuando lo permita el terreno.
+
+**Afectación:** lote 03: 603 m² de plataforma y 118,0 m de eje interior; lote 05: 7 m² de plataforma y 0,0 m de eje interior. Eje dentro del deslinde, con unos 118 m atravesando el interior del lote 03 y plataforma de borde que afecta el lote 05. Se penalizaron interiores, sin prohibirlos. Requiere reserva/servidumbre vial y revisión de la subdivisión. La prioridad de baja pendiente impide asumir que todo pueda ir por los linderos existentes.
+
+Movimiento de tierra longitudinal aproximado: corte 1.112 m³, relleno 1.523 m³; ajuste vertical máximo 3,86 m. Es **proxy de perfil por ancho**, no cubicación de obra: faltan secciones transversales, taludes, roca, muros, compactación/esponjamiento y balance de materiales. Se requieren excavadora y equipos de transporte/compactación; no se promete ejecución manual o sólo con herramientas menores.
+
+### Orden de magnitud del acceso
+
+| Partida | Cantidad | Provisión unitaria CLP | Subtotal $M |
 |---|---:|---:|---:|
-| Bocatoma | -46.0586091 | -72.5910940 | 524,00 |
-| Cámara de carga | -46.0586041 | -72.5911712 | 523,56 |
-| Turbina / restitución | -46.0594616 | -72.5984324 | 351,09 |
+| Base granular 20 cm, calzada + rotonda | 886 | 45.000–80.000 | 39,9–70,9 |
+| Movimiento longitudinal de tierras, proxy | 2.635 | 15.000–30.000 | 39,5–79,0 |
+| Despeje y preparación de plataforma | 660 | 5.000–10.000 | 3,3–6,6 |
+| Drenajes, alcantarillas y cunetas: provisión | 1 | 4.000.000–10.000.000 | 4,0–10,0 |
+| Movilización, topografía y diseño de detalle | 1 | 3.000.000–7.000.000 | 3,0–7,0 |
+| **Total +30%** | | | **116,6–225,6** |
 
-Las coordenadas indican referencias conceptuales sobre el cauce. La casa de máquinas debe desplazarse y replantearse en una margen segura frente a crecidas, conservando la posibilidad de restitución. Las cotas de terreno se usan como aproximación de los niveles hidráulicos; no son niveles de agua medidos y el datum vertical no está certificado.
+Base granular incluye **toda** la plataforma circular de rotonda inferida, de unos 52 m de diámetro, además de calzada: 886 m³. Su ejecución por etapas o una solución anular más pequeña podría reducir costo, pero requiere nuevo diseño y no se descuenta arbitrariamente. Provisiones de $45.000–80.000/m³ de base instalada contemplan logística desconocida y no son ofertas de un contratista. Orden de magnitud, no oferta. Tierra es proxy longitudinal; faltan perfiles transversales, taludes, roca, muros, puentes y disposición de excedentes. No es límite superior de costo. Rotonda completa incluida; radio inferido del loteo, tamaño por revisar.
 
-## Escenarios de generación de la propuesta base
+## Método, archivos y verificación
 
-| Q (L/s) | D interior (pulg.) | hf (m) | hm (m) | H neto (m) | P (kW) | kWh/mes medio | kWh/año |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 10 | 5,0 | 3,495 | 0,095 | 168,89 | 10,77 | 6.289 | 75.470 |
-| 25 | 8,0 | 1,933 | 0,091 | 170,45 | 27,17 | 15.869 | 190.425 |
-| 50 | 10,0 | 2,354 | 0,149 | 169,98 | 54,19 | 31.648 | 379.781 |
-| 100 | 12,0 | 3,497 | 0,287 | 168,69 | 107,57 | 62.820 | 753.837 |
+Búsqueda vial A* ponderada sobre DTM remuestreado a 2 m para explorar corredores con rasante discretizada, penalización de laderas y centros de lotes; heurística ponderada 8, por tanto no asegura mínimo global. Se suavizan giros con arcos R15. Luego se muestrea DTM nativo cada ~2 m y se ajusta rasante con programación lineal a ≤10%. La búsqueda admite ±5,5 m y el ajuste final hasta ±6 m; la solución concreta utiliza sólo 3,86 m. No se usan caminos del KML en ninguna de esas etapas.
 
-Los diámetros son **interiores idealizados de cálculo**, no diámetros nominales comerciales. Cada caudal usa un diámetro distinto: no son cuatro condiciones de una misma instalación. La energía supone factor de planta 80%, equivalente a 7.008 horas anuales a potencia nominal. La energía mensual es anual/12, no una predicción mensual. Los caudales 10/25/50/100 L/s se consideran disponibles en turbina; aún no hay aforos que acrediten caudal derivable o permanente.
+Microhidro: enumeración a intervalos de 10 m sobre arroyos con DTM, pares separados 40–240 m de cauce y Hb18–70 m; evaluación de muestra espacialmente diversa de 90 pares. Se comparan tubo recto o cauce, interior de lotes, longitud 3D, línea piezométrica, caudal necesario y cable estimado. Los puntos no fueron elegidos como máximo salto del arroyo completo.
 
-Familia sugerida para la base: **Pelton / Turgo**, con salto neto de 169,98 m a 50 L/s. La selección es una inferencia de prefactibilidad por el alto salto y los caudales analizados, pendiente de curvas de fabricante y rendimiento a carga parcial. No se acredita un caudal de diseño por la sola declaración de permanencia.
+El visor abre con S1 y acceso nuevo; permite seleccionar tres pares, comparar 0,5/1 kW, ver costos y enlaces, descargar KMZ por sitio y KMZ del acceso, y consultar el potencial amplio original. Datos y descargas incorporados en `index.html`; bibliotecas, fondos Esri/OpenTopo y enlaces requieren Internet. Incluye ortomosaicos reducidos para web. No hay costo de licencia ni de API para el procesamiento o el visor actual; la construcción y sus verificaciones son otra inversión.
 
-## Balance hidráulico
+Archivos: `outputs/microhidro_tres_sitios.json/.geojson`, `outputs/microhidro_S1.kmz` (también S2/S3), `outputs/camino_propuesto.json/.geojson`, `outputs/acceso_rotonda.kmz`, `outputs/perfil_camino.csv`, `outputs/presupuesto_productos.json`. Figuras de propuesta y perfil a continuación.
 
-- Hb = cota captación − cota turbina = 172,91 m.
-- Salto cámara–turbina = 172,48 m.
-- El descenso captación–cámara (0,43 m) se descuenta: la cámara de lámina libre interrumpe la carga de captación.
-- hf = 10,67 × L × Q^1,852 / (C^1,852 × D^4,8704), en SI.
-- C = 145 para plástico nuevo; K accesorios = 3 supuesto.
-- hm = K × v² / (2g); Hn = Hb − descenso de aducción − hf − hm.
-- P = 9,81 × Q × Hn × 0,65; E anual = P × 8.760 × 0,80.
+![Propuesta espacial](outputs/propuesta_acceso_microhidro.png)
 
-Se elige el menor diámetro de la serie 2 a 24 pulgadas interiores que limita hf a 10% de Hb, hf+hm a 10% del salto cámara–turbina y velocidad a 3 m/s, y que conserva el eje de tubería bajo la línea piezométrica a lo largo del perfil. Para ello se supone enterramiento de 1 m. En la meseta inicial del arroyo norte, el criterio de presión exige diámetros mayores que el límite de pérdidas por sí solo; se verifica cada caudal por separado. La comprobación preliminar distribuye la fricción uniformemente y considera las pérdidas locales al final del balance; no sustituye el modelo hidráulico detallado de accesorios.
+![Perfil conceptual de acceso](outputs/perfil_camino.png)
 
-La presión estática máxima aproximada sobre el eje enterrado es de **17,01 bar**, sin golpe de ariete. Es un dimensionamiento hidráulico preliminar, no una optimización de costo. Para HDPE/PVC se debe seleccionar diámetro exterior/SDR/PN y recalcular con el diámetro interior real, presión de trabajo y transitorios. Faltan aducción, cámara/desarenador, válvulas y anclajes.
-
-## Alternativas revisadas
-
-| ID | Cauce / prioridad | Hb (m) | Tubería 3D (m) | Tubería exterior en planta (m) | Cruce interior (m) | Revisión piezométrica |
-|---|---|---:|---:|---:|---:|---|
-| C2-1-1 | Arroyo norte · P1 | 172,91 | 720,0 | 374,0 | 0,0 | Aceptable con diámetros corregidos y 1 m enterrado |
-| C1-1-1 | Arroyo 1 · P1 | 97,28 | 736,9 | 493,2 | 0,0 | Aceptable con diámetros corregidos y 1 m enterrado |
-| C4-1-1 | Quebrada 4 · P3 | 180,17 | 764,8 | 34,5 | 2,7 | Aceptable con diámetros corregidos y 1 m enterrado |
-| C3-1-1 | Quebrada 3 · P3 | 137,44 | 474,4 | 204,3 | 0,0 | Aceptable con diámetros corregidos y 1 m enterrado |
-| C5-1-1 | Quebrada 5 · P3 | 89,14 | 361,1 | 0,0 | 2,6 | Aceptable con diámetros corregidos y 1 m enterrado |
-
-**Las quebradas son de última prioridad y quedan excluidas de la selección principal.** El propietario aclara que no son de escurrimiento permanente y que acceder al agua requeriría perforar. Sus escenarios 10–100 L/s y energía al 80% son sólo referencias matemáticas, sin recurso aprovechable acreditado. No se modelan reserva subterránea, perforaciones ni consumo de bombeo; por tanto no representan producción hidroeléctrica neta disponible. La corrección del diámetro puede mejorar el perfil piezométrico, pero no resuelve esa falta de recurso hídrico acreditado.
-
-Los tramos se separan sólo cuando se interrumpe la cobertura DTM, no al cruzar el deslinde. Cada captación y restitución se mantienen en el mismo cauce; no se suman caudales de cursos diferentes. Los cursos 2 y 3 se incluyen aunque discurran fuera del deslinde. El curso 6 queda visible y pendiente de topografía. Las longitudes de obras exteriores se exportan en `outputs/tramos_fuera_deslinde.geojson`.
-
-## Método SIG y trazado
-
-GeoPandas/Shapely leen SHP y polígonos KML; Rasterio muestrea el DTM nativo de 0,25618 m/píxel. Se usan EPSG:32718 para distancias y EPSG:4326 para los vectores web. El DTM, DSM y ortomosaicos originales están en UTM 18S; no se reescriben los grandes raster originales. Las vistas raster web se reproyectan a Web Mercator con límites WGS84 para Leaflet. La precisión del píxel no equivale a precisión vertical del levantamiento.
-
-En cada tramo continuo del cauce con DTM válido, dentro o fuera del predio, se muestrea a unos 2 m y se busca una pareja alto/bajo ordenada según sentido inferido de las cotas. Se aplica mediana de cinco muestras sólo para localizar extremos; las cotas finales se consultan al DTM. Se ubica una cámara conceptual a 6–30 m de la captación con descenso mínimo de 0,3 m cuando existe. La aducción sigue el cauce entre ambos puntos.
-
-El trazado usa Dijkstra en grilla de 2 m con ocho vecinos, penalizando pendientes e interiores de lotes. Los caminos tienen costo base 1; bandas de 4 m de linderos, 1,3; resto libre, 4; interior de lotes, 25. Se limita la ruta al DTM válido y bajo el nivel de cámara (tolerancia 0,3 m), sin usar el deslinde como barrera. Se revisan cruces de lotes, longitud exterior y línea piezométrica. No se han comprobado servidumbres ni aptitud constructiva. El largo 3D usa el perfil muestreado aproximadamente cada 2 m.
-
-La propuesta se selecciona entre arroyos permanentes con comprobación piezométrica preliminar aceptable, priorizando cruce interior menor de 10 m y luego máximo Hb entre las alternativas candidatas. No se enumeran todas las posiciones posibles ni se demuestra optimalidad global. El perfil supone 1 m de enterramiento; no modela golpe de ariete, inundaciones, geotecnia ni pérdidas particulares de una obra diseñada.
-
-Curvas con intervalo de 1 m, color por Elevation y simplificación web de 0,75 m, sin recorte por deslinde. Se exportan además sin simplificar en `outputs/curvas_completas.geojson`. Los seis cauces de `hidro.shp` se exportan completos. Los ortomosaicos se reducen para web y se muestra por defecto el completo para incluir el norte. El DSM no define niveles hidráulicos: se usa el DTM de terreno.
-
-## Verificación y decisión siguiente
-
-Se verifican independientemente pérdidas/potencias/energía y perfil piezométrico de todas las alternativas, longitud exterior al deslinde, ausencia de cruce interior en la base y KMZ por alternativa con tres puntos y dos líneas. La regresión exige conservar los seis cauces y las 512 curvas completas, incluir más de 600 m del arroyo norte con DTM y dejar quebradas en última prioridad. El navegador se prueba con caudales, selección y descargas. El HTML incorpora vectores, imágenes y descargas; las bibliotecas y fondos externos requieren Internet.
-
-Para decidir inversión: aforos en estiaje y serie estacional, niveles de agua y perfil topográfico independiente, alineación real de los cauces, caudal derivable, sedimentos, crecidas, restitución, emplazamiento de sala en margen segura y acceso. Revisar situación de uso del agua y autorizaciones aplicables con los antecedentes del proyecto. Sin estas comprobaciones no se confirma factibilidad técnica ni económica.
-
-## Referencias
-
-- [EPA, EPANET](https://www.epa.gov/water-research/epanet): metodología de pérdidas distribuidas y locales; plástico nuevo C 140–150.
-- [DOE, Types of Hydropower Turbines](https://www.energy.gov/cmei/water/types-hydropower-turbines): relación entre salto, caudal y familias de turbina. La elección final debe contrastarse con fabricante.
-
-## Archivos y reproducción
-
-Abrir `index.html` en un navegador con Internet. Las descargas KMZ/CSV del mapa corresponden a la **alternativa seleccionada**. La exportación `outputs/la_cantina_propuesta.kmz` corresponde a la nueva base **C2-1-1**. Hay KMZ por candidato, `outputs/escenarios_todas_alternativas.csv`, `outputs/inventario_cauces.json`, resultados en `outputs/results.json` y rutas en `outputs/alternativas.geojson`.
-
-Con Python 3.12 y los insumos originales en la carpeta del proyecto:
+Reproducción con insumos originales y dependencias de `requirements-lock.txt`:
 
 ```powershell
-python -m venv .venv
-.venv/Scripts/python -m pip install -r requirements-lock.txt
 .venv/Scripts/python analyze.py
+.venv/Scripts/python fit_rotonda.py
+.venv/Scripts/python small_hydro.py
+.venv/Scripts/python road_plan.py
+.venv/Scripts/python planning_finance.py
 .venv/Scripts/python build_viewer.py
+.venv/Scripts/python make_report.py
+.venv/Scripts/python planning_report.py
 .venv/Scripts/python verify_outputs.py
+.venv/Scripts/python verify_planning.py
 node --check outputs/viewer-scripts.js
 ```
 
-También se admite `pip install geopandas rasterio shapely pyproj folium scipy matplotlib` para reconstrucción con versiones compatibles. No se requiere licencia pagada ni API key. Los nombres de los insumos deben conservarse. Los KML se leen con parser XML que conserva los polígonos de estos archivos; no está pensado como lector universal de todos los tipos KML/KMZ.
+## Fuentes de precios y comprobación técnica
+
+- [HDPE PE100 PN16](https://s2l.cl/collections/tuberias-hdpe): 90 mm x 6 m: $43.690; 110 mm x 6 m: $64.960; confirmar IVA y despacho.
+- [Cable RV-K 3x10 mm², no AWG](https://rhona.cl/producto/137/cable-rv-k-3x10mm2.html): $4.265/m IVA incluido; sin stock web. Referencia, no disponibilidad.
+- [Batería BESS 51,2 V 100 Ah](https://www.solartex.cl/tienda/producto/bateria-de-litio-bessenergy-512v-100ah/): $763.000 + IVA = $907.970; 5,12 kWh nominales.
+- [Inversor Epever 3 kW 48 V](https://sunstorm.cl/productos/inversor-off-grid-3000w-48v-onda-sinusoidal-pura-epever): $422.990 IVA incluido; el cargador/regulador hidro se presupuesta aparte.
+- [Base granular: referencia de modelo](https://chile.generadordeprecios.info/espacios_urbanos/Firmes_y_pisos_urbanos/Bases_y_subbases/Granulares/Base_granular_0_0_4_3.html): $23.577,94/m³ en modelo CYPE; no es precio entregado en el predio. Se adopta provisión mayor por logística.
+- [Importación: referencia general](https://www.sii.cl/aprenda_sobre_impuestos/impuestos/impuestos_indirectos.htm): IVA y derechos dependen del régimen y origen; usar cotización de costo puesto en Chile, no precio de pantalla.
+- [EPA EPANET](https://www.epa.gov/water-research/epanet): referencia de método hidráulico; C145 y K3 son supuestos del estudio.
+- [DOE: familias de turbina](https://www.energy.gov/cmei/water/types-hydropower-turbines): orientación por salto/caudal; elección final con curva de fabricante.
+
+Antes de invertir: verificar tenencia/acceso exterior, aforo de estiaje y reservas de agua, topografía y niveles reales, seguridad ante crecidas, geotecnia vial y predial, trazado eléctrico hacia casas y situación de permisos/uso del agua aplicable al proyecto concreto. No se ha acreditado factibilidad constructiva, disponibilidad firme de agua ni costo final.

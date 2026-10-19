@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "microhidro_tres_sitios",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "site": "S1", "name": "Bocatoma compacta", "stream": "Arroyo norte" }, "geometry": { "type": "Point", "coordinates": [ -72.596155727344254, -46.059279037278785 ] } },
+{ "type": "Feature", "properties": { "site": "S1", "name": "Turbina y restitución", "stream": "Arroyo norte" }, "geometry": { "type": "Point", "coordinates": [ -72.596653527477159, -46.059375723982122 ] } },
+{ "type": "Feature", "properties": { "site": "S1", "name": "Tubería propuesta", "stream": "Arroyo norte" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.596155727344254, -46.059279037278785 ], [ -72.596653527477159, -46.059375723982122 ] ] } },
+{ "type": "Feature", "properties": { "site": "S2", "name": "Bocatoma compacta", "stream": "Arroyo norte" }, "geometry": { "type": "Point", "coordinates": [ -72.594838567429491, -46.058658609002947 ] } },
+{ "type": "Feature", "properties": { "site": "S2", "name": "Turbina y restitución", "stream": "Arroyo norte" }, "geometry": { "type": "Point", "coordinates": [ -72.595223514007643, -46.059017913499197 ] } },
+{ "type": "Feature", "properties": { "site": "S2", "name": "Tubería propuesta", "stream": "Arroyo norte" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.594838567429491, -46.058658609002947 ], [ -72.595223514007643, -46.059017913499197 ] ] } },
+{ "type": "Feature", "properties": { "site": "S3", "name": "Bocatoma compacta", "stream": "Arroyo límite sur" }, "geometry": { "type": "Point", "coordinates": [ -72.593011032668628, -46.068022010046462 ] } },
+{ "type": "Feature", "properties": { "site": "S3", "name": "Turbina y restitución", "stream": "Arroyo límite sur" }, "geometry": { "type": "Point", "coordinates": [ -72.593524253717462, -46.068029694894001 ] } },
+{ "type": "Feature", "properties": { "site": "S3", "name": "Tubería propuesta", "stream": "Arroyo límite sur" }, "geometry": { "type": "LineString", "coordinates": [ [ -72.593011032668628, -46.068022010046462 ], [ -72.593524253717462, -46.068029694894001 ] ] } }
+]
+}

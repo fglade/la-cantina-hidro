@@ -1,0 +1,523 @@
+{
+  "date": "2026-10-19",
+  "currency": "CLP",
+  "status": "Estimación de orden de magnitud con provisiones; no cotización",
+  "budgets": {
+    "S1": {
+      "items": [
+        {
+          "item": "Turbina + generador económico importado, puesto en Chile",
+          "quantity": 1,
+          "unit_low_clp": 1200000,
+          "unit_high_clp": 2000000,
+          "low_clp": 1200000,
+          "high_clp": 2000000,
+          "basis": "Provisión; referencia Ali histórica, curva y flete sin confirmar"
+        },
+        {
+          "item": "Regulación hidro, carga de desvío y cargador compatible",
+          "quantity": 1,
+          "unit_low_clp": 600000,
+          "unit_high_clp": 1200000,
+          "low_clp": 600000,
+          "high_clp": 1200000,
+          "basis": "Provisión; no duplicar si el kit los incluye"
+        },
+        {
+          "item": "HDPE PN16 SDR11, m comprados",
+          "quantity": 54,
+          "unit_low_clp": 8665.183333333332,
+          "unit_high_clp": 10922.5,
+          "low_clp": 467919.89999999997,
+          "high_clp": 589815.0,
+          "basis": "Precio publicado elevado 19% conservador; confirmar tratamiento de IVA"
+        },
+        {
+          "item": "Válvulas, uniones, anclajes y venteo",
+          "quantity": 1,
+          "unit_low_clp": 250000,
+          "unit_high_clp": 500000,
+          "low_clp": 250000,
+          "high_clp": 500000,
+          "basis": "Provisión"
+        },
+        {
+          "item": "Rejilla, desarenado y caseta pequeña en margen segura",
+          "quantity": 1,
+          "unit_low_clp": 800000,
+          "unit_high_clp": 1600000,
+          "low_clp": 800000,
+          "high_clp": 1600000,
+          "basis": "Obra liviana condicionada a terreno y crecidas"
+        },
+        {
+          "item": "Alimentador hasta rotonda, Cu 10 mm², m estimados",
+          "quantity": 476.77928441947654,
+          "unit_low_clp": 4265,
+          "unit_high_clp": 8000,
+          "low_clp": 2033463.6480490675,
+          "high_clp": 3814234.275355812,
+          "basis": "10 mm²: referencia RHONA sin stock; 16 mm²: provisión propia"
+        },
+        {
+          "item": "Ducto/soportes y tendido del alimentador, m estimados",
+          "quantity": 476.77928441947654,
+          "unit_low_clp": 1500,
+          "unit_high_clp": 4000,
+          "low_clp": 715168.9266292148,
+          "high_clp": 1907117.137677906,
+          "basis": "Provisión; roca, puente o tendido aéreo especial no cubicados"
+        },
+        {
+          "item": "Batería LiFePO4 5,12 kWh nominal",
+          "quantity": 1,
+          "unit_low_clp": 907970,
+          "unit_high_clp": 1200000,
+          "low_clp": 907970,
+          "high_clp": 1200000,
+          "basis": "Referencia comercial + IVA; compatibilidad BMS por confirmar"
+        },
+        {
+          "item": "Inversor senoidal 48 V, 3 kW compartidos",
+          "quantity": 1,
+          "unit_low_clp": 422990,
+          "unit_high_clp": 700000,
+          "low_clp": 422990,
+          "high_clp": 700000,
+          "basis": "Cargador hidro aparte; no son 3 kW por casa"
+        },
+        {
+          "item": "Tablero, tierra, sobretensión y protecciones",
+          "quantity": 1,
+          "unit_low_clp": 400000,
+          "unit_high_clp": 800000,
+          "low_clp": 400000,
+          "high_clp": 800000,
+          "basis": "Provisión"
+        },
+        {
+          "item": "Ramales básicos a 2–3 casas",
+          "quantity": 1,
+          "unit_low_clp": 600000,
+          "unit_high_clp": 1400000,
+          "low_clp": 600000,
+          "high_clp": 1400000,
+          "basis": "Provisión no cubicada; casas aún no localizadas"
+        },
+        {
+          "item": "Montaje, traslados y puesta en marcha",
+          "quantity": 1,
+          "unit_low_clp": 800000,
+          "unit_high_clp": 1600000,
+          "low_clp": 800000,
+          "high_clp": 1600000,
+          "basis": "Provisión sin apertura de camino"
+        },
+        {
+          "item": "Levantamiento de detalle, aforo y revisión eléctrica",
+          "quantity": 1,
+          "unit_low_clp": 400000,
+          "unit_high_clp": 900000,
+          "low_clp": 400000,
+          "high_clp": 900000,
+          "basis": "Provisión de contratación; cálculo SIG realizado con herramientas gratuitas"
+        }
+      ],
+      "subtotal_low_clp": 9597512.474678282,
+      "subtotal_high_clp": 18211166.413033716,
+      "contingency_pct": 25,
+      "total_low_clp": 11996890.593347851,
+      "total_high_clp": 22763958.016292147,
+      "local_only_low_clp": 7811099.875,
+      "local_only_high_clp": 13862268.75,
+      "cable_section_mm2": 10,
+      "cable_voltage_drop_pct": 4.055778411885906,
+      "cable_basis": "230 V AC, 1 kW, FP1, cobre caliente rho=0,0225 Ω mm²/m; sólo aproximación resistiva.",
+      "excluded": "Sin apertura de camino, compra de tierra/servidumbres, derechos o permisos específicos, extensión a casas distantes ni obra mayor en roca/cauce. Costos de trámites por determinar."
+    },
+    "S2": {
+      "items": [
+        {
+          "item": "Turbina + generador económico importado, puesto en Chile",
+          "quantity": 1,
+          "unit_low_clp": 1200000,
+          "unit_high_clp": 2000000,
+          "low_clp": 1200000,
+          "high_clp": 2000000,
+          "basis": "Provisión; referencia Ali histórica, curva y flete sin confirmar"
+        },
+        {
+          "item": "Regulación hidro, carga de desvío y cargador compatible",
+          "quantity": 1,
+          "unit_low_clp": 600000,
+          "unit_high_clp": 1200000,
+          "low_clp": 600000,
+          "high_clp": 1200000,
+          "basis": "Provisión; no duplicar si el kit los incluye"
+        },
+        {
+          "item": "HDPE PN16 SDR11, m comprados",
+          "quantity": 60,
+          "unit_low_clp": 12883.733333333332,
+          "unit_high_clp": 16240.0,
+          "low_clp": 773023.9999999999,
+          "high_clp": 974400.0,
+          "basis": "Precio publicado elevado 19% conservador; confirmar tratamiento de IVA"
+        },
+        {
+          "item": "Válvulas, uniones, anclajes y venteo",
+          "quantity": 1,
+          "unit_low_clp": 250000,
+          "unit_high_clp": 500000,
+          "low_clp": 250000,
+          "high_clp": 500000,
+          "basis": "Provisión"
+        },
+        {
+          "item": "Rejilla, desarenado y caseta pequeña en margen segura",
+          "quantity": 1,
+          "unit_low_clp": 800000,
+          "unit_high_clp": 1600000,
+          "low_clp": 800000,
+          "high_clp": 1600000,
+          "basis": "Obra liviana condicionada a terreno y crecidas"
+        },
+        {
+          "item": "Alimentador hasta rotonda, Cu 10 mm², m estimados",
+          "quantity": 526.5116475000848,
+          "unit_low_clp": 4265,
+          "unit_high_clp": 8000,
+          "low_clp": 2245572.1765878615,
+          "high_clp": 4212093.180000679,
+          "basis": "10 mm²: referencia RHONA sin stock; 16 mm²: provisión propia"
+        },
+        {
+          "item": "Ducto/soportes y tendido del alimentador, m estimados",
+          "quantity": 526.5116475000848,
+          "unit_low_clp": 1500,
+          "unit_high_clp": 4000,
+          "low_clp": 789767.4712501272,
+          "high_clp": 2106046.5900003393,
+          "basis": "Provisión; roca, puente o tendido aéreo especial no cubicados"
+        },
+        {
+          "item": "Batería LiFePO4 5,12 kWh nominal",
+          "quantity": 1,
+          "unit_low_clp": 907970,
+          "unit_high_clp": 1200000,
+          "low_clp": 907970,
+          "high_clp": 1200000,
+          "basis": "Referencia comercial + IVA; compatibilidad BMS por confirmar"
+        },
+        {
+          "item": "Inversor senoidal 48 V, 3 kW compartidos",
+          "quantity": 1,
+          "unit_low_clp": 422990,
+          "unit_high_clp": 700000,
+          "low_clp": 422990,
+          "high_clp": 700000,
+          "basis": "Cargador hidro aparte; no son 3 kW por casa"
+        },
+        {
+          "item": "Tablero, tierra, sobretensión y protecciones",
+          "quantity": 1,
+          "unit_low_clp": 400000,
+          "unit_high_clp": 800000,
+          "low_clp": 400000,
+          "high_clp": 800000,
+          "basis": "Provisión"
+        },
+        {
+          "item": "Ramales básicos a 2–3 casas",
+          "quantity": 1,
+          "unit_low_clp": 600000,
+          "unit_high_clp": 1400000,
+          "low_clp": 600000,
+          "high_clp": 1400000,
+          "basis": "Provisión no cubicada; casas aún no localizadas"
+        },
+        {
+          "item": "Montaje, traslados y puesta en marcha",
+          "quantity": 1,
+          "unit_low_clp": 800000,
+          "unit_high_clp": 1600000,
+          "low_clp": 800000,
+          "high_clp": 1600000,
+          "basis": "Provisión sin apertura de camino"
+        },
+        {
+          "item": "Levantamiento de detalle, aforo y revisión eléctrica",
+          "quantity": 1,
+          "unit_low_clp": 400000,
+          "unit_high_clp": 900000,
+          "low_clp": 400000,
+          "high_clp": 900000,
+          "basis": "Provisión de contratación; cálculo SIG realizado con herramientas gratuitas"
+        }
+      ],
+      "subtotal_low_clp": 10189323.647837989,
+      "subtotal_high_clp": 19192539.770001017,
+      "contingency_pct": 25,
+      "total_low_clp": 12736654.559797486,
+      "total_high_clp": 23990674.712501273,
+      "local_only_low_clp": 8192480.0,
+      "local_only_high_clp": 14343000.0,
+      "cable_section_mm2": 10,
+      "cable_voltage_drop_pct": 4.4788325401708535,
+      "cable_basis": "230 V AC, 1 kW, FP1, cobre caliente rho=0,0225 Ω mm²/m; sólo aproximación resistiva.",
+      "excluded": "Sin apertura de camino, compra de tierra/servidumbres, derechos o permisos específicos, extensión a casas distantes ni obra mayor en roca/cauce. Costos de trámites por determinar."
+    },
+    "S3": {
+      "items": [
+        {
+          "item": "Turbina + generador económico importado, puesto en Chile",
+          "quantity": 1,
+          "unit_low_clp": 1200000,
+          "unit_high_clp": 2000000,
+          "low_clp": 1200000,
+          "high_clp": 2000000,
+          "basis": "Provisión; referencia Ali histórica, curva y flete sin confirmar"
+        },
+        {
+          "item": "Regulación hidro, carga de desvío y cargador compatible",
+          "quantity": 1,
+          "unit_low_clp": 600000,
+          "unit_high_clp": 1200000,
+          "low_clp": 600000,
+          "high_clp": 1200000,
+          "basis": "Provisión; no duplicar si el kit los incluye"
+        },
+        {
+          "item": "HDPE PN16 SDR11, m comprados",
+          "quantity": 54,
+          "unit_low_clp": 12883.733333333332,
+          "unit_high_clp": 16240.0,
+          "low_clp": 695721.5999999999,
+          "high_clp": 876960.0,
+          "basis": "Precio publicado elevado 19% conservador; confirmar tratamiento de IVA"
+        },
+        {
+          "item": "Válvulas, uniones, anclajes y venteo",
+          "quantity": 1,
+          "unit_low_clp": 250000,
+          "unit_high_clp": 500000,
+          "low_clp": 250000,
+          "high_clp": 500000,
+          "basis": "Provisión"
+        },
+        {
+          "item": "Rejilla, desarenado y caseta pequeña en margen segura",
+          "quantity": 1,
+          "unit_low_clp": 800000,
+          "unit_high_clp": 1600000,
+          "low_clp": 800000,
+          "high_clp": 1600000,
+          "basis": "Obra liviana condicionada a terreno y crecidas"
+        },
+        {
+          "item": "Alimentador hasta rotonda, Cu 16 mm², m estimados",
+          "quantity": 767.384316616576,
+          "unit_low_clp": 7000,
+          "unit_high_clp": 12000,
+          "low_clp": 5371690.216316032,
+          "high_clp": 9208611.799398912,
+          "basis": "10 mm²: referencia RHONA sin stock; 16 mm²: provisión propia"
+        },
+        {
+          "item": "Ducto/soportes y tendido del alimentador, m estimados",
+          "quantity": 767.384316616576,
+          "unit_low_clp": 1500,
+          "unit_high_clp": 4000,
+          "low_clp": 1151076.474924864,
+          "high_clp": 3069537.266466304,
+          "basis": "Provisión; roca, puente o tendido aéreo especial no cubicados"
+        },
+        {
+          "item": "Batería LiFePO4 5,12 kWh nominal",
+          "quantity": 1,
+          "unit_low_clp": 907970,
+          "unit_high_clp": 1200000,
+          "low_clp": 907970,
+          "high_clp": 1200000,
+          "basis": "Referencia comercial + IVA; compatibilidad BMS por confirmar"
+        },
+        {
+          "item": "Inversor senoidal 48 V, 3 kW compartidos",
+          "quantity": 1,
+          "unit_low_clp": 422990,
+          "unit_high_clp": 700000,
+          "low_clp": 422990,
+          "high_clp": 700000,
+          "basis": "Cargador hidro aparte; no son 3 kW por casa"
+        },
+        {
+          "item": "Tablero, tierra, sobretensión y protecciones",
+          "quantity": 1,
+          "unit_low_clp": 400000,
+          "unit_high_clp": 800000,
+          "low_clp": 400000,
+          "high_clp": 800000,
+          "basis": "Provisión"
+        },
+        {
+          "item": "Ramales básicos a 2–3 casas",
+          "quantity": 1,
+          "unit_low_clp": 600000,
+          "unit_high_clp": 1400000,
+          "low_clp": 600000,
+          "high_clp": 1400000,
+          "basis": "Provisión no cubicada; casas aún no localizadas"
+        },
+        {
+          "item": "Montaje, traslados y puesta en marcha",
+          "quantity": 1,
+          "unit_low_clp": 800000,
+          "unit_high_clp": 1600000,
+          "low_clp": 800000,
+          "high_clp": 1600000,
+          "basis": "Provisión sin apertura de camino"
+        },
+        {
+          "item": "Levantamiento de detalle, aforo y revisión eléctrica",
+          "quantity": 1,
+          "unit_low_clp": 400000,
+          "unit_high_clp": 900000,
+          "low_clp": 400000,
+          "high_clp": 900000,
+          "basis": "Provisión de contratación; cálculo SIG realizado con herramientas gratuitas"
+        }
+      ],
+      "subtotal_low_clp": 13599448.291240895,
+      "subtotal_high_clp": 25055109.065865215,
+      "contingency_pct": 25,
+      "total_low_clp": 16999310.36405112,
+      "total_high_clp": 31318886.33233152,
+      "local_only_low_clp": 8095852.0,
+      "local_only_high_clp": 14221200.0,
+      "cable_section_mm2": 16,
+      "cable_voltage_drop_pct": 4.079902439478488,
+      "cable_basis": "230 V AC, 1 kW, FP1, cobre caliente rho=0,0225 Ω mm²/m; sólo aproximación resistiva.",
+      "excluded": "Sin apertura de camino, compra de tierra/servidumbres, derechos o permisos específicos, extensión a casas distantes ni obra mayor en roca/cauce. Costos de trámites por determinar."
+    }
+  },
+  "road": {
+    "items": [
+      {
+        "item": "Base granular 20 cm, calzada + rotonda",
+        "quantity": 886.2932316589902,
+        "unit_low_clp": 45000,
+        "unit_high_clp": 80000,
+        "low_clp": 39883195.42465456,
+        "high_clp": 70903458.53271921
+      },
+      {
+        "item": "Movimiento longitudinal de tierras, proxy",
+        "quantity": 2634.9969824118743,
+        "unit_low_clp": 15000,
+        "unit_high_clp": 30000,
+        "low_clp": 39524954.736178115,
+        "high_clp": 79049909.47235623
+      },
+      {
+        "item": "Despeje y preparación de plataforma",
+        "quantity": 660.1067565072323,
+        "unit_low_clp": 5000,
+        "unit_high_clp": 10000,
+        "low_clp": 3300533.782536161,
+        "high_clp": 6601067.565072322
+      },
+      {
+        "item": "Drenajes, alcantarillas y cunetas: provisión",
+        "quantity": 1,
+        "unit_low_clp": 4000000,
+        "unit_high_clp": 10000000,
+        "low_clp": 4000000,
+        "high_clp": 10000000
+      },
+      {
+        "item": "Movilización, topografía y diseño de detalle",
+        "quantity": 1,
+        "unit_low_clp": 3000000,
+        "unit_high_clp": 7000000,
+        "low_clp": 3000000,
+        "high_clp": 7000000
+      }
+    ],
+    "total_low_clp": 116621289.12637949,
+    "total_high_clp": 225620766.24119207,
+    "contingency_pct": 30,
+    "warning": "Orden de magnitud, no oferta. Tierra es proxy longitudinal; faltan perfiles transversales, taludes, roca, muros, puentes y disposición de excedentes. No es límite superior de costo. Rotonda completa incluida; radio inferido del loteo, tamaño por revisar."
+  },
+  "products": [
+    {
+      "name": "AliExpress · generador 1/2 kW",
+      "url": "https://www.aliexpress.com/item/1005012619584537.html",
+      "reference": "https://ms.pricearchive.org/aliexpress.com/item/1005012619584537",
+      "price": "US$709,80 archivados el 16-09-2026",
+      "verdict": "Preselección condicionada: no se verificó curva H/Q ni variante; no comprar aún."
+    },
+    {
+      "name": "AliExpress · compacto 300/500/1000 W",
+      "url": "https://www.aliexpress.com/item/1005008506351365.html",
+      "reference": "https://sv.pricearchive.org/aliexpress.com/item/1005008506351365",
+      "price": "Sin precio comprobado",
+      "verdict": "Pedir curva para H neto 24,3 m y Q 6,46 L/s; confirmar equipo completo y regulación."
+    },
+    {
+      "name": "AliExpress · axial 1 kW",
+      "url": "https://www.aliexpress.com/item/1005012367548289.html",
+      "reference": "https://www.pricearchive.org/aliexpress.com/item/1005012367548289",
+      "price": "US$478,62 archivados el 21-09-2026",
+      "verdict": "Descartado como selección automática: no se acredita compatibilidad con 20–26 m de salto."
+    },
+    {
+      "name": "AliExpress · rodete Pelton suelto",
+      "url": "https://www.aliexpress.com/item/1005009309567283.html",
+      "reference": "https://vi.pricearchive.org/aliexpress.com/item/1005009309567283",
+      "price": "US$67,32 históricos; sólo rodete",
+      "verdict": "No es un sistema generador completo. No usar ese precio como costo del proyecto."
+    },
+    {
+      "name": "PowerSpout PLT · referencia técnica",
+      "url": "https://www.powerspout.com/products/powerspout-plt",
+      "reference": "https://www.powerspout.com/products/powerspout-plt",
+      "price": "NZD 3.773,70, sin GST, flete ni importación",
+      "verdict": "Pelton comercial de referencia, 1.200 W estándar. Pedir configuración y curva para el punto calculado; no garantiza 1 kW sólo por su placa."
+    }
+  ],
+  "sources": [
+    {
+      "item": "HDPE PE100 PN16",
+      "url": "https://s2l.cl/collections/tuberias-hdpe",
+      "observed": "90 mm x 6 m: $43.690; 110 mm x 6 m: $64.960; confirmar IVA y despacho."
+    },
+    {
+      "item": "Cable RV-K 3x10 mm², no AWG",
+      "url": "https://rhona.cl/producto/137/cable-rv-k-3x10mm2.html",
+      "observed": "$4.265/m IVA incluido; sin stock web. Referencia, no disponibilidad."
+    },
+    {
+      "item": "Batería BESS 51,2 V 100 Ah",
+      "url": "https://www.solartex.cl/tienda/producto/bateria-de-litio-bessenergy-512v-100ah/",
+      "observed": "$763.000 + IVA = $907.970; 5,12 kWh nominales."
+    },
+    {
+      "item": "Inversor Epever 3 kW 48 V",
+      "url": "https://sunstorm.cl/productos/inversor-off-grid-3000w-48v-onda-sinusoidal-pura-epever",
+      "observed": "$422.990 IVA incluido; el cargador/regulador hidro se presupuesta aparte."
+    },
+    {
+      "item": "Base granular: referencia de modelo",
+      "url": "https://chile.generadordeprecios.info/espacios_urbanos/Firmes_y_pisos_urbanos/Bases_y_subbases/Granulares/Base_granular_0_0_4_3.html",
+      "observed": "$23.577,94/m³ en modelo CYPE; no es precio entregado en el predio. Se adopta provisión mayor por logística."
+    },
+    {
+      "item": "Importación: referencia general",
+      "url": "https://www.sii.cl/aprenda_sobre_impuestos/impuestos/impuestos_indirectos.htm",
+      "observed": "IVA y derechos dependen del régimen y origen; usar cotización de costo puesto en Chile, no precio de pantalla."
+    }
+  ],
+  "aliexpress_status": "Acceso automatizado directo bloqueado. Enlaces identificados mediante referencias públicas previamente consultadas; precios históricos, variante, stock, flete y curva no verificados.",
+  "import_budget_basis": "US$1 = $1.000 CLP es supuesto presupuestario, no tipo de cambio vigente. Ejemplo US$700 + US$200 flete: $900.000 CIF; impuestos, gestión y flete interior incluidos mediante provisión global. Confirmar régimen aplicable con cotización puesta en Chile.",
+  "recommendation": "S1 · Pelton compacta 1 kW, batería 5,12 kWh e inversor 3 kW compartidos, condicionada a aforo de verano y acceso exterior. Comparar cotización solar por uso de sólo 60 días."
+}

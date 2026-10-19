@@ -1,0 +1,613 @@
+{
+  "selected": "S1",
+  "sites": [
+    {
+      "id": "S1",
+      "rank": 1,
+      "stream_id": 2,
+      "stream_name": "Arroyo norte",
+      "priority": 1,
+      "intake_wgs84": [
+        -72.59615572734425,
+        -46.059279037278785
+      ],
+      "turbine_wgs84": [
+        -72.59665352747716,
+        -46.05937572398212
+      ],
+      "intake_z": 432.53204345703125,
+      "turbine_z": 406.392822265625,
+      "gross_head_m": 26.13922119140625,
+      "length_m": 48.749899382974924,
+      "length_plan_m": 39.99209820096932,
+      "outside_property_plan_m": 39.99209820096932,
+      "inside_points": {
+        "intake": false,
+        "turbine": false
+      },
+      "cable_length_allowance_m": 476.77928441947654,
+      "cable_basis": "1,25×distancia recta a rotonda; no es trazado eléctrico levantado",
+      "route_profile": [
+        {
+          "distance_m": 0.0,
+          "terrain_m": 432.53204345703125
+        },
+        {
+          "distance_m": 1.481188822258123,
+          "terrain_m": 432.1404724121094
+        },
+        {
+          "distance_m": 2.962377644516246,
+          "terrain_m": 431.60357666015625
+        },
+        {
+          "distance_m": 4.443566466774369,
+          "terrain_m": 431.03082275390625
+        },
+        {
+          "distance_m": 5.924755289032492,
+          "terrain_m": 430.4203186035156
+        },
+        {
+          "distance_m": 7.405944111290616,
+          "terrain_m": 429.7635803222656
+        },
+        {
+          "distance_m": 8.887132933548738,
+          "terrain_m": 429.2612609863281
+        },
+        {
+          "distance_m": 10.368321755806862,
+          "terrain_m": 428.6556091308594
+        },
+        {
+          "distance_m": 11.849510578064985,
+          "terrain_m": 428.1785583496094
+        },
+        {
+          "distance_m": 13.330699400323107,
+          "terrain_m": 427.5294494628906
+        },
+        {
+          "distance_m": 14.811888222581231,
+          "terrain_m": 426.7633972167969
+        },
+        {
+          "distance_m": 16.293077044839354,
+          "terrain_m": 426.20709228515625
+        },
+        {
+          "distance_m": 17.774265867097476,
+          "terrain_m": 425.57177734375
+        },
+        {
+          "distance_m": 19.2554546893556,
+          "terrain_m": 424.8472595214844
+        },
+        {
+          "distance_m": 20.736643511613725,
+          "terrain_m": 424.0322570800781
+        },
+        {
+          "distance_m": 22.217832333871847,
+          "terrain_m": 423.1475524902344
+        },
+        {
+          "distance_m": 23.69902115612997,
+          "terrain_m": 422.15264892578125
+        },
+        {
+          "distance_m": 25.180209978388092,
+          "terrain_m": 421.0786437988281
+        },
+        {
+          "distance_m": 26.661398800646214,
+          "terrain_m": 419.9738464355469
+        },
+        {
+          "distance_m": 28.14258762290434,
+          "terrain_m": 418.7696533203125
+        },
+        {
+          "distance_m": 29.623776445162463,
+          "terrain_m": 417.5658874511719
+        },
+        {
+          "distance_m": 31.104965267420585,
+          "terrain_m": 416.2783203125
+        },
+        {
+          "distance_m": 32.58615408967871,
+          "terrain_m": 414.9172058105469
+        },
+        {
+          "distance_m": 34.067342911936834,
+          "terrain_m": 413.5268859863281
+        },
+        {
+          "distance_m": 35.54853173419495,
+          "terrain_m": 411.94659423828125
+        },
+        {
+          "distance_m": 37.02972055645308,
+          "terrain_m": 410.22149658203125
+        },
+        {
+          "distance_m": 38.5109093787112,
+          "terrain_m": 408.43536376953125
+        },
+        {
+          "distance_m": 39.99209820096932,
+          "terrain_m": 406.392822265625
+        }
+      ],
+      "plans": [
+        {
+          "target_kw": 0.5,
+          "power_kw": 0.5,
+          "q_ls": 3.134859269426154,
+          "pipe_od_mm": 75,
+          "pipe_id_mm": 61.36363636363636,
+          "assumed_sdr": 11,
+          "assumed_pn_bar": 16,
+          "velocity_ms": 1.0600003104978182,
+          "hf_m": 0.954197487455102,
+          "hm_m": 0.17180438199624937,
+          "net_head_m": 25.0132193219549,
+          "gross_head_m": 26.13922119140625,
+          "min_hgl_clearance_m": 0.5,
+          "burial_depth_m": 0.5,
+          "daily_gross_kwh": 12.0,
+          "daily_usable_kwh": 8.640000000000002,
+          "season_60d_usable_kwh": 518.4000000000001,
+          "nozzle_ideal_mm": 13.422917946240222
+        },
+        {
+          "target_kw": 1.0,
+          "power_kw": 1.0000000000000002,
+          "q_ls": 6.456023288058831,
+          "pipe_od_mm": 90,
+          "pipe_id_mm": 73.63636363636363,
+          "assumed_sdr": 11,
+          "assumed_pn_bar": 16,
+          "velocity_ms": 1.5159697643691572,
+          "hf_m": 1.4964197943771174,
+          "hm_m": 0.35140127316230546,
+          "net_head_m": 24.291400123866826,
+          "gross_head_m": 26.13922119140625,
+          "min_hgl_clearance_m": 0.5,
+          "burial_depth_m": 0.5,
+          "daily_gross_kwh": 24.000000000000007,
+          "daily_usable_kwh": 17.280000000000005,
+          "season_60d_usable_kwh": 1036.8000000000002,
+          "nozzle_ideal_mm": 19.404377536681615
+        }
+      ],
+      "score": 391.1860982869237,
+      "static_pressure_bar": 2.612415184967041,
+      "turbine_family": "Pelton de baja potencia, 1 chorro; confirmar curva fabricante",
+      "intake_scheme": "Captación compacta con rejilla y desarenado/venteo en cabecera; sin canal ni cámara separada",
+      "ranking_basis": "Comparación de longitud 3D, cable estimado a rotonda, exterioridad y presión; no máxima potencia ni óptimo global"
+    },
+    {
+      "id": "S2",
+      "rank": 2,
+      "stream_id": 2,
+      "stream_name": "Arroyo norte",
+      "priority": 1,
+      "intake_wgs84": [
+        -72.59483856742949,
+        -46.05865860900295
+      ],
+      "turbine_wgs84": [
+        -72.59522351400764,
+        -46.0590179134992
+      ],
+      "intake_z": 455.6458740234375,
+      "turbine_z": 435.9571838378906,
+      "gross_head_m": 19.688690185546875,
+      "length_m": 53.99864202466468,
+      "length_plan_m": 49.82407293385576,
+      "outside_property_plan_m": 49.82407293385576,
+      "inside_points": {
+        "intake": false,
+        "turbine": false
+      },
+      "cable_length_allowance_m": 526.5116475000848,
+      "cable_basis": "1,25×distancia recta a rotonda; no es trazado eléctrico levantado",
+      "route_profile": [
+        {
+          "distance_m": 0.0,
+          "terrain_m": 455.6458740234375
+        },
+        {
+          "distance_m": 1.465413909819287,
+          "terrain_m": 455.30218505859375
+        },
+        {
+          "distance_m": 2.930827819638574,
+          "terrain_m": 454.8492736816406
+        },
+        {
+          "distance_m": 4.396241729457861,
+          "terrain_m": 454.45208740234375
+        },
+        {
+          "distance_m": 5.861655639277148,
+          "terrain_m": 453.8960266113281
+        },
+        {
+          "distance_m": 7.327069549096436,
+          "terrain_m": 453.44036865234375
+        },
+        {
+          "distance_m": 8.792483458915722,
+          "terrain_m": 452.86016845703125
+        },
+        {
+          "distance_m": 10.25789736873501,
+          "terrain_m": 452.42437744140625
+        },
+        {
+          "distance_m": 11.723311278554297,
+          "terrain_m": 451.8992919921875
+        },
+        {
+          "distance_m": 13.188725188373583,
+          "terrain_m": 451.498046875
+        },
+        {
+          "distance_m": 14.654139098192871,
+          "terrain_m": 450.9712219238281
+        },
+        {
+          "distance_m": 16.119553008012158,
+          "terrain_m": 450.47271728515625
+        },
+        {
+          "distance_m": 17.584966917831444,
+          "terrain_m": 449.8910827636719
+        },
+        {
+          "distance_m": 19.05038082765073,
+          "terrain_m": 449.2852783203125
+        },
+        {
+          "distance_m": 20.51579473747002,
+          "terrain_m": 448.75634765625
+        },
+        {
+          "distance_m": 21.981208647289307,
+          "terrain_m": 448.32122802734375
+        },
+        {
+          "distance_m": 23.446622557108594,
+          "terrain_m": 447.87408447265625
+        },
+        {
+          "distance_m": 24.91203646692788,
+          "terrain_m": 447.3668212890625
+        },
+        {
+          "distance_m": 26.377450376747166,
+          "terrain_m": 447.0870666503906
+        },
+        {
+          "distance_m": 27.842864286566456,
+          "terrain_m": 446.7493896484375
+        },
+        {
+          "distance_m": 29.308278196385743,
+          "terrain_m": 446.294677734375
+        },
+        {
+          "distance_m": 30.77369210620503,
+          "terrain_m": 445.7439880371094
+        },
+        {
+          "distance_m": 32.239106016024316,
+          "terrain_m": 445.1451416015625
+        },
+        {
+          "distance_m": 33.704519925843606,
+          "terrain_m": 444.4303894042969
+        },
+        {
+          "distance_m": 35.16993383566289,
+          "terrain_m": 443.74560546875
+        },
+        {
+          "distance_m": 36.63534774548218,
+          "terrain_m": 443.0284118652344
+        },
+        {
+          "distance_m": 38.10076165530146,
+          "terrain_m": 442.59197998046875
+        },
+        {
+          "distance_m": 39.56617556512075,
+          "terrain_m": 442.0671691894531
+        },
+        {
+          "distance_m": 41.03158947494004,
+          "terrain_m": 441.5143127441406
+        },
+        {
+          "distance_m": 42.497003384759324,
+          "terrain_m": 440.8392639160156
+        },
+        {
+          "distance_m": 43.962417294578614,
+          "terrain_m": 440.2412109375
+        },
+        {
+          "distance_m": 45.4278312043979,
+          "terrain_m": 439.3830871582031
+        },
+        {
+          "distance_m": 46.89324511421719,
+          "terrain_m": 438.6373596191406
+        },
+        {
+          "distance_m": 48.35865902403648,
+          "terrain_m": 437.3738098144531
+        },
+        {
+          "distance_m": 49.82407293385576,
+          "terrain_m": 435.9571838378906
+        }
+      ],
+      "plans": [
+        {
+          "target_kw": 0.5,
+          "power_kw": 0.5,
+          "q_ls": 4.169928184572909,
+          "pipe_od_mm": 90,
+          "pipe_id_mm": 73.63636363636363,
+          "assumed_sdr": 11,
+          "assumed_pn_bar": 16,
+          "velocity_ms": 0.9791608185639021,
+          "hf_m": 0.7377094337111794,
+          "hm_m": 0.14659876278451542,
+          "net_head_m": 18.804381989051183,
+          "gross_head_m": 19.688690185546875,
+          "min_hgl_clearance_m": 0.5,
+          "burial_depth_m": 0.5,
+          "daily_gross_kwh": 12.0,
+          "daily_usable_kwh": 8.640000000000002,
+          "season_60d_usable_kwh": 518.4000000000001,
+          "nozzle_ideal_mm": 16.62569580603601
+        },
+        {
+          "target_kw": 1.0,
+          "power_kw": 1.0000000000000004,
+          "q_ls": 8.538756955146154,
+          "pipe_od_mm": 110,
+          "pipe_id_mm": 90.0,
+          "assumed_sdr": 11,
+          "assumed_pn_bar": 16,
+          "velocity_ms": 1.3422077800215422,
+          "hf_m": 1.0468727496687769,
+          "hm_m": 0.27546203742360187,
+          "net_head_m": 18.3663553984545,
+          "gross_head_m": 19.688690185546875,
+          "min_hgl_clearance_m": 0.5,
+          "burial_depth_m": 0.5,
+          "daily_gross_kwh": 24.00000000000001,
+          "daily_usable_kwh": 17.28000000000001,
+          "season_60d_usable_kwh": 1036.8000000000004,
+          "nozzle_ideal_mm": 23.931608449165214
+        }
+      ],
+      "score": 436.7642098841325,
+      "static_pressure_bar": 1.9798341860809325,
+      "turbine_family": "Pelton de baja potencia, 1 chorro; confirmar curva fabricante",
+      "intake_scheme": "Captación compacta con rejilla y desarenado/venteo en cabecera; sin canal ni cámara separada",
+      "ranking_basis": "Comparación de longitud 3D, cable estimado a rotonda, exterioridad y presión; no máxima potencia ni óptimo global"
+    },
+    {
+      "id": "S3",
+      "rank": 3,
+      "stream_id": 1,
+      "stream_name": "Arroyo límite sur",
+      "priority": 1,
+      "intake_wgs84": [
+        -72.59301103266863,
+        -46.06802201004646
+      ],
+      "turbine_wgs84": [
+        -72.59352425371746,
+        -46.068029694894
+      ],
+      "intake_z": 395.5201110839844,
+      "turbine_z": 373.87603759765625,
+      "gross_head_m": 21.644073486328125,
+      "length_m": 46.758323990851,
+      "length_plan_m": 39.71726305654621,
+      "outside_property_plan_m": 39.71726305654621,
+      "inside_points": {
+        "intake": false,
+        "turbine": false
+      },
+      "cable_length_allowance_m": 767.384316616576,
+      "cable_basis": "1,25×distancia recta a rotonda; no es trazado eléctrico levantado",
+      "route_profile": [
+        {
+          "distance_m": 0.0,
+          "terrain_m": 395.5201110839844
+        },
+        {
+          "distance_m": 1.4710097428350448,
+          "terrain_m": 394.4930114746094
+        },
+        {
+          "distance_m": 2.9420194856700896,
+          "terrain_m": 393.20477294921875
+        },
+        {
+          "distance_m": 4.413029228505135,
+          "terrain_m": 391.85406494140625
+        },
+        {
+          "distance_m": 5.884038971340179,
+          "terrain_m": 390.6785583496094
+        },
+        {
+          "distance_m": 7.355048714175224,
+          "terrain_m": 389.2038879394531
+        },
+        {
+          "distance_m": 8.82605845701027,
+          "terrain_m": 387.6499938964844
+        },
+        {
+          "distance_m": 10.297068199845313,
+          "terrain_m": 385.9971008300781
+        },
+        {
+          "distance_m": 11.768077942680359,
+          "terrain_m": 384.521240234375
+        },
+        {
+          "distance_m": 13.239087685515404,
+          "terrain_m": 382.66845703125
+        },
+        {
+          "distance_m": 14.710097428350448,
+          "terrain_m": 381.15399169921875
+        },
+        {
+          "distance_m": 16.18110717118549,
+          "terrain_m": 380.6682434082031
+        },
+        {
+          "distance_m": 17.65211691402054,
+          "terrain_m": 380.5603332519531
+        },
+        {
+          "distance_m": 19.123126656855582,
+          "terrain_m": 380.3667907714844
+        },
+        {
+          "distance_m": 20.594136399690626,
+          "terrain_m": 380.0282897949219
+        },
+        {
+          "distance_m": 22.065146142525673,
+          "terrain_m": 379.6199951171875
+        },
+        {
+          "distance_m": 23.536155885360717,
+          "terrain_m": 379.23724365234375
+        },
+        {
+          "distance_m": 25.00716562819576,
+          "terrain_m": 378.7294921875
+        },
+        {
+          "distance_m": 26.478175371030808,
+          "terrain_m": 378.15032958984375
+        },
+        {
+          "distance_m": 27.949185113865852,
+          "terrain_m": 377.56103515625
+        },
+        {
+          "distance_m": 29.420194856700896,
+          "terrain_m": 377.0207824707031
+        },
+        {
+          "distance_m": 30.891204599535943,
+          "terrain_m": 376.4388122558594
+        },
+        {
+          "distance_m": 32.36221434237098,
+          "terrain_m": 376.1228332519531
+        },
+        {
+          "distance_m": 33.833224085206034,
+          "terrain_m": 375.7076416015625
+        },
+        {
+          "distance_m": 35.30423382804108,
+          "terrain_m": 375.3290100097656
+        },
+        {
+          "distance_m": 36.77524357087612,
+          "terrain_m": 374.850341796875
+        },
+        {
+          "distance_m": 38.246253313711165,
+          "terrain_m": 374.3601989746094
+        },
+        {
+          "distance_m": 39.71726305654621,
+          "terrain_m": 373.87603759765625
+        }
+      ],
+      "plans": [
+        {
+          "target_kw": 0.5,
+          "power_kw": 0.4999999999956329,
+          "q_ls": 3.9228702766782066,
+          "pipe_od_mm": 75,
+          "pipe_id_mm": 61.36363636363636,
+          "assumed_sdr": 11,
+          "assumed_pn_bar": 16,
+          "velocity_ms": 1.3264530729900168,
+          "hf_m": 1.386379613273308,
+          "hm_m": 0.26903329584780716,
+          "net_head_m": 19.988660577207007,
+          "gross_head_m": 21.644073486328125,
+          "min_hgl_clearance_m": 0.5,
+          "burial_depth_m": 0.5,
+          "daily_gross_kwh": 11.99999999989519,
+          "daily_usable_kwh": 8.639999999924537,
+          "season_60d_usable_kwh": 518.3999999954723,
+          "nozzle_ideal_mm": 15.88131129778763
+        },
+        {
+          "target_kw": 1.0,
+          "power_kw": 1.0000000000000002,
+          "q_ls": 7.575791305170053,
+          "pipe_od_mm": 110,
+          "pipe_id_mm": 90.0,
+          "assumed_sdr": 11,
+          "assumed_pn_bar": 16,
+          "velocity_ms": 1.190839144741151,
+          "hf_m": 0.7263195894779326,
+          "hm_m": 0.2168345364904948,
+          "net_head_m": 20.7009193603597,
+          "gross_head_m": 21.644073486328125,
+          "min_hgl_clearance_m": 0.5,
+          "burial_depth_m": 0.5,
+          "daily_gross_kwh": 24.000000000000007,
+          "daily_usable_kwh": 17.280000000000005,
+          "season_60d_usable_kwh": 1036.8000000000002,
+          "nozzle_ideal_mm": 21.8774601455989
+        }
+      ],
+      "score": 562.3418864014592,
+      "static_pressure_bar": 2.1715917825469973,
+      "turbine_family": "Pelton de baja potencia, 1 chorro; confirmar curva fabricante",
+      "intake_scheme": "Captación compacta con rejilla y desarenado/venteo en cabecera; sin canal ni cámara separada",
+      "ranking_basis": "Comparación de longitud 3D, cable estimado a rotonda, exterioridad y presión; no máxima potencia ni óptimo global"
+    }
+  ],
+  "household_count": 3,
+  "season_days": 60,
+  "assumed_daily_load_kwh_per_house": [
+    1.5,
+    3.0
+  ],
+  "total_daily_load_kwh": [
+    4.5,
+    9.0
+  ],
+  "exclusions": "Sin calefacción, termo eléctrico, cocina eléctrica ni carga de vehículos; simultaneidad por definir.",
+  "recommended_generation_kw": 1.0,
+  "recommended_battery_nominal_kwh": 5.12,
+  "recommended_inverter_continuous_kw": 3.0,
+  "inverter_limit": "3 kW compartidos entre casas; no 3 kW por casa. Un solo termo o hervidor puede superar el régimen previsto.",
+  "estimated_usable_battery_kwh": 3.6864000000000003
+}

@@ -7,9 +7,9 @@ rows='\n'.join(f"| {s['q_ls']} | {f(s['diameter_in'],1)} | {f(s['hf_m'],3)} | {f
 points='\n'.join(f"| {name} | {c['points_wgs84'][key][1]:.7f} | {c['points_wgs84'][key][0]:.7f} | {f(c[z])} |" for name,key,z in [('Bocatoma','intake','intake_z'),('Cámara de carga','chamber','chamber_z'),('Turbina / restitución','tail','tail_z')])
 alts='\n'.join(f"| {a['id']} | {a['stream_name']} · P{a['priority']} | {f(a['hb'])} | {f(a['length_m'],1)} | {f(a['outside_property_plan_m'],1)} | {f(a['interior_crossing_m'],1)} | {'Aceptable con diámetros corregidos y 1 m enterrado' if a['hgl_ok'] else 'Requiere ajuste de perfil'} |" for a in r['alternatives'])
 inventory='\n'.join(f"| {s['stream_id']} | {s['stream_name']} | {s['priority']} | {f(s['total_length_m'],1)} | {f(s['dtm_valid_length_m'],1)} | {f(s['dtm_coverage_pct'],1)}% |" for s in r['stream_inventory'])
-text=f'''# La Cantina — Prefactibilidad hidroeléctrica geoespacial
+text=f'''# La Cantina — Apéndice de potencial hidroeléctrico amplio
 
-Revisión 2 — 19 de octubre de 2026. **Arroyo norte incluido; cauces y curvas sin recorte predial.** Estudio preliminar con herramientas gratuitas y datos proporcionados por el propietario. Sin presupuesto de obras ni estudio de rentabilidad.
+Revisión 3 — 19 de octubre de 2026. **Arroyo norte incluido; cauces y curvas sin recorte predial. CAMINOS hipotéticos excluidos del cálculo.** Este apéndice conserva el potencial de mayor salto; la propuesta pequeña recomendada y el acceso nuevo están en [PROPUESTA_ACCESO_MICROHIDRO.md](PROPUESTA_ACCESO_MICROHIDRO.md).
 
 Esta revisión sustituye la selección anterior de 13,23 m de salto. El deslinde se usa como referencia para identificar obras dentro/fuera, no como límite de exclusión del recurso. Se priorizan los arroyos permanentes; las quebradas no permanentes se conservan sólo en última prioridad, según la aclaración del propietario de que acceder al agua requeriría perforar.
 
@@ -19,7 +19,7 @@ Se identifica la alternativa **{c['id']} en el {c['stream_name']} (ID {c['stream
 
 **Obras exteriores al deslinde original:** {f(c['outside_property_plan_m'],1)} m de tubería en planta ({f(c['outside_property_pct'],1)}% de la ruta) y {f(c['adduction_outside_property_m'],1)} m de aducción. El visor marca estos tramos en rojo discontinuo; los puntos indican individualmente si quedan dentro o fuera. La propuesta requiere validar acceso y tenencia en esos sectores, además de los antecedentes de uso del agua. Incluirlos en la evaluación no acredita disponibilidad para construir.
 
-La subdivisión contiene diez lotes y un camino vehicular, con {f(r['metadata']['lots_area_ha'])} ha de lotes. El deslinde original abarca {f(r['metadata']['property_area_ha'])} ha. La cobertura DTM calculada a 2 m alcanza **{f(r['metadata']['dem_coverage_pct'],1)}% del deslinde**. El área DTM válida total analizada es {f(r['metadata']['dtm_full_area_ha'])} ha, incluyendo topografía exterior al predio. Se conservan las 512 curvas completas y los seis cauces; no se extrapola potencial donde falta DTM.
+La subdivisión contiene diez lotes, con {f(r['metadata']['lots_area_ha'])} ha. El polígono CAMINOS se conserva sólo como insumo original; no se usa ni se muestra como camino existente. El deslinde original abarca {f(r['metadata']['property_area_ha'])} ha. La cobertura DTM calculada a 2 m alcanza **{f(r['metadata']['dem_coverage_pct'],1)}% del deslinde**. El área DTM válida total analizada es {f(r['metadata']['dtm_full_area_ha'])} ha, incluyendo topografía exterior al predio. Se conservan las 512 curvas completas y los seis cauces; no se extrapola potencial donde falta DTM.
 
 ## Inventario completo de cauces
 
@@ -77,7 +77,7 @@ GeoPandas/Shapely leen SHP y polígonos KML; Rasterio muestrea el DTM nativo de 
 
 En cada tramo continuo del cauce con DTM válido, dentro o fuera del predio, se muestrea a unos 2 m y se busca una pareja alto/bajo ordenada según sentido inferido de las cotas. Se aplica mediana de cinco muestras sólo para localizar extremos; las cotas finales se consultan al DTM. Se ubica una cámara conceptual a 6–30 m de la captación con descenso mínimo de 0,3 m cuando existe. La aducción sigue el cauce entre ambos puntos.
 
-El trazado usa Dijkstra en grilla de 2 m con ocho vecinos, penalizando pendientes e interiores de lotes. Los caminos tienen costo base 1; bandas de 4 m de linderos, 1,3; resto libre, 4; interior de lotes, 25. Se limita la ruta al DTM válido y bajo el nivel de cámara (tolerancia 0,3 m), sin usar el deslinde como barrera. Se revisan cruces de lotes, longitud exterior y línea piezométrica. No se han comprobado servidumbres ni aptitud constructiva. El largo 3D usa el perfil muestreado aproximadamente cada 2 m.
+El trazado usa Dijkstra en grilla de 2 m con ocho vecinos, penalizando pendientes e interiores de lotes. Bandas de 4 m de linderos: costo 1,3; resto libre, 4; interior de lotes, 25. CAMINOS hipotéticos no participan del costo ni del trazado. Se limita la ruta al DTM válido y bajo el nivel de cámara (tolerancia 0,3 m), sin usar el deslinde como barrera. Se revisan cruces de lotes, longitud exterior y línea piezométrica. No se han comprobado servidumbres ni aptitud constructiva. El largo 3D usa el perfil muestreado aproximadamente cada 2 m.
 
 La propuesta se selecciona entre arroyos permanentes con comprobación piezométrica preliminar aceptable, priorizando cruce interior menor de 10 m y luego máximo Hb entre las alternativas candidatas. No se enumeran todas las posiciones posibles ni se demuestra optimalidad global. El perfil supone 1 m de enterramiento; no modela golpe de ariete, inundaciones, geotecnia ni pérdidas particulares de una obra diseñada.
 
@@ -111,9 +111,9 @@ node --check outputs/viewer-scripts.js
 
 También se admite `pip install geopandas rasterio shapely pyproj folium scipy matplotlib` para reconstrucción con versiones compatibles. No se requiere licencia pagada ni API key. Los nombres de los insumos deben conservarse. Los KML se leen con parser XML que conserva los polígonos de estos archivos; no está pensado como lector universal de todos los tipos KML/KMZ.
 '''
-(ROOT/'INFORME_PREFACTIBILIDAD.md').write_text(text,encoding='utf8')
-shutil.copy2(ROOT/'INFORME_PREFACTIBILIDAD.md',DIST/'INFORME_PREFACTIBILIDAD.md')
-files=['analyze.py','build_viewer.py','hydraulics.py','inspect_data.py','verify_outputs.py','make_report.py','viewer_panel.html','requirements-lock.txt','INFORME_PREFACTIBILIDAD.md','README.md','index.html']
+(ROOT/'APENDICE_POTENCIAL.md').write_text(text.replace('prioriza linderos y caminos','prioriza linderos'),encoding='utf8')
+shutil.copy2(ROOT/'APENDICE_POTENCIAL.md',DIST/'APENDICE_POTENCIAL.md')
+files=['analyze.py','build_viewer.py','hydraulics.py','inspect_data.py','verify_outputs.py','verify_planning.py','make_report.py','viewer_panel.html','planning_panel.html','planning_map.py','planning_finance.py','planning_report.py','small_hydro.py','road_plan.py','fit_rotonda.py','requirements-lock.txt','INFORME_PREFACTIBILIDAD.md','PROPUESTA_ACCESO_MICROHIDRO.md','APENDICE_POTENCIAL.md','README.md','index.html']
 with zipfile.ZipFile(ROOT/'la_cantina_estudio.zip','w',zipfile.ZIP_DEFLATED) as z:
     for name in files:z.write(ROOT/name,name)
     for p in OUT.iterdir():

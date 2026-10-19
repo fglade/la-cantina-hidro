@@ -32,6 +32,7 @@ def lines(g):
 def main():
     lots_all=read_kml(ROOT/'20260408_parelas_caminas_kml.kml').to_crs(CRS)
     lots=lots_all[lots_all.name.str.fullmatch(r'\d+')].copy()
+    # CAMINOS del KML son hipotéticos: no intervienen como acceso ni costo.
     roads=lots_all[~lots_all.index.isin(lots.index)].copy()
     boundary=read_kml(ROOT/'20231207_deslinde_original.kml').to_crs(CRS)
     for g in (lots, roads, boundary): g.geometry=g.geometry.make_valid()
@@ -121,12 +122,12 @@ def main():
         inside=burn([property_geom])
         # La ruta puede salir del deslinde: se cuantifica y señala, no se
         # presume dominio o autorización de uso sobre el tramo exterior.
-        # Banda preferente de 4 m junto a linderos; caminos incluidos completos.
+        # Sólo linderos: el trazado CAMINOS se conserva como antecedente,
+        # pero no participa en ninguna preferencia hidráulica.
         inner=burn([g.buffer(-4) for g in lots.geometry])
-        roadmask=burn(roads.geometry)
         boundarymask=burn([g.boundary.buffer(4) for g in lots.geometry]+[property_geom.boundary.buffer(4)])
-        preferred=roadmask|boundarymask
-        base=np.where(roadmask,1.0,np.where(preferred,1.3,np.where(inner,25.,4.)))
+        preferred=boundarymask
+        base=np.where(preferred,1.3,np.where(inner,25.,4.))
         finite=np.isfinite(grid)
         inside_finite=inside & finite
         ids=np.arange(ht*w).reshape(ht,w)
@@ -190,7 +191,7 @@ def main():
             for _,lot in lots.iterrows():
                 length=route.intersection(lot.geometry.buffer(-4)).length
                 if length>0.5: intrusions.append(dict(lote=lot['name'],length_m=length))
-            pref_length=route.intersection(roads.geometry.union_all().union(lots.geometry.map(lambda x:x.boundary.buffer(4)).union_all()).union(property_geom.boundary.buffer(4))).length
+            pref_length=route.intersection(lots.geometry.map(lambda x:x.boundary.buffer(4)).union_all().union(property_geom.boundary.buffer(4))).length
             cand.update(route=route,length_m=length3d,length_plan_m=route.length,
                         interior_crossing_m=cross.length,intrusions=intrusions,preferred_pct=100*pref_length/route.length,
                         score=cand['penstock_head']/length3d,
@@ -246,7 +247,7 @@ def main():
             return obj
         # Cobertura real en el predio, vectorizada a resolución de análisis.
         cell_area=step**2
-        metadata=dict(revision=2,analysis_scope='Cauces y topografía completos, sin recorte por deslinde; limitado sólo por DTM válido',
+        metadata=dict(revision=3,legacy_roads_used=False,analysis_scope='Cauces completos; CAMINOS hipotéticos excluidos de costos y trazados',
                       northern_stream_id=2,crs_metric=CRS,dem_resolution_m=dem.res[0],grid_step_m=step,property_area_ha=property_geom.area/10000,
                       dem_coverage_pct=100*(inside_finite.sum()*cell_area)/property_geom.area,
                       dtm_full_area_ha=finite.sum()*cell_area/10000,contour_feature_count=len(contours),
@@ -272,7 +273,7 @@ def main():
         # Resumen cartográfico para QA independiente de Folium.
         fig,ax=plt.subplots(figsize=(11,12))
         ax.imshow(np.where(finite,grid,np.nan),extent=(tr.c,tr.c+w*step,tr.f-ht*step,tr.f),cmap='terrain',alpha=.8)
-        boundary.boundary.plot(ax=ax,color='black');lots.boundary.plot(ax=ax,color='white',linewidth=.8);roads.plot(ax=ax,color='grey',alpha=.7)
+        boundary.boundary.plot(ax=ax,color='black');lots.boundary.plot(ax=ax,color='white',linewidth=.8)
         streams.plot(ax=ax,color='#1389bd',linewidth=1.5)
         for c in alternatives:
             xs,ys=c['route'].xy;ax.plot(xs,ys,label=f"{c['id']} · H={c['hb']:.1f} m",linewidth=3 if c is selected else 1.3)

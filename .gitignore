@@ -34,4 +34,5 @@ sites/
 outputs/viewer-scripts.js
 outputs/run.log
 outputs/publicacion.json
+outputs/*busqueda.log
 

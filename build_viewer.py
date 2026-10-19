@@ -76,7 +76,6 @@ def main():
     labels=folium.FeatureGroup(name='Etiquetas de lotes',show=True).add_to(m)
     for _,lot in lots.iterrows():
         p=lot.geometry.representative_point();folium.Marker([p.y,p.x],icon=folium.DivIcon(html=f'<span class="lot-label">{html.escape(lot["name"])}</span>')).add_to(labels)
-    folium.GeoJson(geo['caminos'],name='Camino vehicular',style_function=lambda f:dict(color='#d1c0a4',weight=1,fillColor='#c3b69e',fillOpacity=.6),tooltip='Camino vehicular según subdivisión').add_to(m)
     inventory={s['stream_id']:s for s in r['stream_inventory']}
     for f in geo['hidrografia']['features']:
         props=f['properties']; inv=inventory[props['id']]
@@ -90,7 +89,7 @@ def main():
     folium.GeoJson(geo['curvas'],name='Curvas completas · intervalo 1 m · sin recorte',show=False,style_function=lambda f:dict(color=cmap(f['properties']['Elevation']),weight=1.3 if f['properties']['Elevation']%5==0 else .65,opacity=.85),tooltip=folium.GeoJsonTooltip(fields=['Elevation'],aliases=['Cota DTM (m)'])).add_to(m)
     groups={};downloads={}
     for cand in r['alternatives']:
-        cid=cand['id'];active=cid==sel['id'];color='#ff9c4b' if cand['tipo']=='arroyo' else '#d09ce5'
+        cid=cand['id'];active=False;color='#ff9c4b' if cand['tipo']=='arroyo' else '#d09ce5'
         group=folium.FeatureGroup(name=f"P{cand['priority']} · {cid} · {cand['stream_name']} · H {cand['hb']:.1f} m"+(' · revisar perfil' if not cand['hgl_ok'] else ''),show=active).add_to(m);groups[cid]=group.get_name()
         feat=next(f for f in geo['alternativas']['features'] if f['properties']['candidate']==cid)
         folium.GeoJson(feat,style_function=lambda f,col=color:dict(color=col,weight=5,opacity=.95),tooltip=f"{cid} · Tubería {cand['length_m']:.1f} m · trazado conceptual").add_to(group)
@@ -112,6 +111,8 @@ def main():
         import csv
         buf=io.StringIO(newline='');wr=csv.DictWriter(buf,fieldnames=list(cand['scenarios'][0]));wr.writeheader();wr.writerows(cand['scenarios'])
         downloads[cid]=dict(kmz=base64.b64encode(kmz_c).decode(),csv=base64.b64encode(buf.getvalue().encode('utf-8-sig')).decode())
+    from planning_map import add_planning
+    planning=add_planning(m)
     folium.LayerControl(position='topright',collapsed=True).add_to(m)
     Fullscreen(position='topright',title='Pantalla completa').add_to(m)
     MeasureControl(position='topright',primary_length_unit='meters',secondary_length_unit='kilometers',primary_area_unit='hectares').add_to(m)
@@ -121,14 +122,25 @@ def main():
     payload=dict(results=r,groups=groups,downloads=downloads,map_name=m.get_name(),kmz=base64.b64encode(kmz).decode(),
                  csv=base64.b64encode((OUT/'escenarios.csv').read_bytes()).decode(),
                  geojson=base64.b64encode((OUT/'propuesta.geojson').read_bytes()).decode())
-    panel=(ROOT/'viewer_panel.html').read_text(encoding='utf8').replace('__PAYLOAD__',json.dumps(payload,ensure_ascii=False).replace('</','<\\/'))
+    payload.update(planning)
+    bounds=bd.total_bounds
+    points=[p for s in planning['small']['sites'] for p in (s['intake_wgs84'],s['turbine_wgs84'])]
+    payload['study_bounds']=[[min(bounds[1],*(p[1] for p in points)),min(bounds[0],*(p[0] for p in points))],[max(bounds[3],*(p[1] for p in points)),max(bounds[2],*(p[0] for p in points))]]
+    styles=(ROOT/'viewer_panel.html').read_text(encoding='utf8').split('<header')[0]
+    panel=styles+(ROOT/'planning_panel.html').read_text(encoding='utf8').replace('__PAYLOAD__',json.dumps(payload,ensure_ascii=False).replace('</','<\\/'))
     m.get_root().html.add_child(folium.Element(panel.split('<!--SCRIPT-->')[0]))
     behavior=MacroElement()
     behavior._template=Template('{% macro script(this, kwargs) %}'+panel.split('<!--SCRIPT-->')[1]+'{% endmacro %}')
     m.add_child(behavior)
-    m.get_root().header.add_child(folium.Element('<title>La Cantina | Atlas hidroeléctrico</title><meta name="description" content="Prefactibilidad hidroeléctrica: lotes, topografía, alternativas y escenarios de generación.">'))
-    m.save(DIST/'index.html');shutil.copy2(DIST/'index.html',ROOT/'index.html')
+    m.get_root().header.add_child(folium.Element('<title>La Cantina | Acceso y microhidro de verano</title><meta name="description" content="Nuevo acceso conceptual a rotonda y tres sitios de microhidro para 2–3 casas, con presupuesto y referencias de turbinas.">'))
+    rendered=m.get_root().render()
+    cleaned='\n'.join(line.rstrip() for line in rendered.splitlines())+'\n'
+    for target in (DIST/'index.html',ROOT/'index.html'):
+        temp=target.with_suffix('.tmp')
+        temp.write_text(cleaned,encoding='utf8');temp.replace(target)
     for name in ['la_cantina_propuesta.kmz','escenarios.csv','escenarios_todas_alternativas.csv','results.json','inventario_cauces.json','propuesta.geojson','curvas_completas.geojson','tramos_fuera_deslinde.geojson','perfil_tuberia.png']+[f"la_cantina_{c['id']}.kmz" for c in r['alternatives']]:
+        shutil.copy2(OUT/name,DIST/name)
+    for name in ['microhidro_tres_sitios.json','microhidro_tres_sitios.geojson','camino_propuesto.json','camino_propuesto.geojson','perfil_camino.csv','presupuesto_productos.json','acceso_rotonda.kmz']+[f'microhidro_S{i}.kmz' for i in (1,2,3)]:
         shutil.copy2(OUT/name,DIST/name)
     print('Visor generado:',DIST/'index.html','MB:',round((DIST/'index.html').stat().st_size/1e6,2))
 
