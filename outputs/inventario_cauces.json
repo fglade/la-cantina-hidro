@@ -1,0 +1,74 @@
+[
+  {
+    "stream_id": 1,
+    "tipo": "arroyo",
+    "stream_name": "Arroyo 1",
+    "priority": 1,
+    "total_length_m": 2012.1478185582223,
+    "dtm_valid_length_m": 668.0490769368253,
+    "dtm_coverage_pct": 33.20079522862823,
+    "valid_runs": 1,
+    "outside_property_m": 654.4626094111575,
+    "status": "Con cotas DTM; analizado sin recorte predial"
+  },
+  {
+    "stream_id": 2,
+    "tipo": "arroyo",
+    "stream_name": "Arroyo norte",
+    "priority": 1,
+    "total_length_m": 1513.1155542655038,
+    "dtm_valid_length_m": 648.478094685216,
+    "dtm_coverage_pct": 42.85714285714286,
+    "valid_runs": 1,
+    "outside_property_m": 884.2131796227484,
+    "status": "Con cotas DTM; analizado sin recorte predial"
+  },
+  {
+    "stream_id": 3,
+    "tipo": "quebrada",
+    "stream_name": "Quebrada 3",
+    "priority": 3,
+    "total_length_m": 421.2849275655383,
+    "dtm_valid_length_m": 421.2849275655383,
+    "dtm_coverage_pct": 100.0,
+    "valid_runs": 1,
+    "outside_property_m": 421.2849275655383,
+    "status": "Con cotas DTM; analizado sin recorte predial"
+  },
+  {
+    "stream_id": 4,
+    "tipo": "quebrada",
+    "stream_name": "Quebrada 4",
+    "priority": 3,
+    "total_length_m": 801.7959538405983,
+    "dtm_valid_length_m": 801.7959538405983,
+    "dtm_coverage_pct": 100.0,
+    "valid_runs": 1,
+    "outside_property_m": 0.0,
+    "status": "Con cotas DTM; analizado sin recorte predial"
+  },
+  {
+    "stream_id": 5,
+    "tipo": "quebrada",
+    "stream_name": "Quebrada 5",
+    "priority": 3,
+    "total_length_m": 462.8191393014154,
+    "dtm_valid_length_m": 462.8191393014154,
+    "dtm_coverage_pct": 100.0,
+    "valid_runs": 1,
+    "outside_property_m": 0.0,
+    "status": "Con cotas DTM; analizado sin recorte predial"
+  },
+  {
+    "stream_id": 6,
+    "tipo": "arroyo",
+    "stream_name": "Arroyo 6",
+    "priority": 1,
+    "total_length_m": 797.3169514195387,
+    "dtm_valid_length_m": 0.0,
+    "dtm_coverage_pct": 0.0,
+    "valid_runs": 0,
+    "outside_property_m": 789.07925766518,
+    "status": "Sin DTM suficiente; conservar visible y solicitar topografía"
+  }
+]

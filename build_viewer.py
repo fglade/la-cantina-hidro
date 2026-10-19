@@ -44,9 +44,9 @@ def kmz_bytes(proposal,selected):
         if text is not None:a.text=str(text)
         return a
     root=ET.Element('{'+ns+'}kml');doc=e('Document',root);e('name',doc,'La Cantina · propuesta preliminar '+selected['id'])
-    e('description',doc,'Cotas y trazados conceptuales derivados del DTM. Sin aforo. Validar captación, restitución, inundación, servidumbres y niveles de agua en terreno. Altitudes relativas al terreno; no usar como levantamiento de obra.')
+    e('description',doc,f"Revisión 2 · {selected['stream_name']} · prioridad {selected['priority']}. Tubería fuera del deslinde: {selected['outside_property_plan_m']:.1f} m en planta; aducción exterior: {selected['adduction_outside_property_m']:.1f} m. No acredita acceso ni tenencia. Cotas DTM, sin aforo; validar niveles y restitución en terreno. Quebradas: no permanentes, última prioridad y sin producción firme acreditada. Altitudes clampToGround; no usar para replanteo de obra.")
     for _,r in proposal.iterrows():
-        pm=e('Placemark',doc);e('name',pm,r['name']);style=e('Style',pm);ls=e('LineStyle',style);e('color',ls,'ff2788ff');e('width',ls,4)
+        pm=e('Placemark',doc);e('name',pm,r['name']);e('description',pm,f"Alternativa {selected['id']} · {selected['stream_name']} · acceso exterior pendiente de validación");style=e('Style',pm);ls=e('LineStyle',style);e('color',ls,'ff2788ff');e('width',ls,4)
         if r.geometry.geom_type=='Point':
             g=e('Point',pm);e('altitudeMode',g,'clampToGround');e('coordinates',g,f'{r.geometry.x},{r.geometry.y},0')
         else:
@@ -57,7 +57,7 @@ def kmz_bytes(proposal,selected):
 
 def main():
     r=json.loads((OUT/'results.json').read_text(encoding='utf8'));sel=r['selected']
-    geo={name:json.loads((OUT/(name+'.geojson')).read_text(encoding='utf8')) for name in ['lotes','caminos','deslinde','hidrografia','curvas','alternativas','propuesta','cobertura']}
+    geo={name:json.loads((OUT/(name+'.geojson')).read_text(encoding='utf8')) for name in ['lotes','caminos','deslinde','hidrografia','curvas','alternativas','propuesta','cobertura','tramos_fuera_deslinde']}
     lots=gpd.read_file(OUT/'lotes.geojson');bd=gpd.read_file(OUT/'deslinde.geojson')
     c=lots.to_crs(32718).geometry.union_all().centroid
     cp=gpd.GeoSeries([c],crs=32718).to_crs(4326).iloc[0]
@@ -65,11 +65,11 @@ def main():
     folium.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',name='Satélite · Esri World Imagery',attr='Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community',max_zoom=22,max_native_zoom=19).add_to(m)
     folium.TileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',name='Relieve · OpenTopoMap',attr='Map data © OpenStreetMap contributors, SRTM | Map style © OpenTopoMap (CC-BY-SA)',max_zoom=22,max_native_zoom=17,show=False).add_to(m)
     # Ortofotos incorporadas: funcionan incluso si los fondos remotos fallan.
-    for name,path,show,size in [('Ortomosaico 10 cm · vista web reducida',ROOT/'LA_CANTINA_GSD10_EXTENT.tif',True,1400),('Ortomosaico completo · vista web reducida',ROOT/'LA_CANTINA_transparent_mosaic_group1.tif',False,1700)]:
+    for name,path,show,size in [('Ortomosaico 10 cm · vista web reducida',ROOT/'LA_CANTINA_GSD10_EXTENT.tif',False,1400),('Ortomosaico completo · incluye sector norte',ROOT/'LA_CANTINA_transparent_mosaic_group1.tif',True,1700)]:
         png,bounds=png_overlay(path,size)
         folium.raster_layers.ImageOverlay(str(png),bounds=bounds,name=name,opacity=.95,show=show,interactive=True,attr='Ortomosaico proporcionado por el propietario · remuestreado para web').add_to(m)
     folium.GeoJson(geo['deslinde'],name='Deslinde original · 104,57 ha',style_function=lambda f:dict(color='#f7f6ec',weight=3,fillOpacity=0,dashArray='8 5'),tooltip='Deslinde original (KML proporcionado)').add_to(m)
-    folium.GeoJson(geo['cobertura'],name='Cobertura válida del DTM · 50,6% del predio',show=False,style_function=lambda f:dict(color='#e0af48',weight=2,fillColor='#e0af48',fillOpacity=.12),tooltip='Área con datos DTM: no se extrapolan cotas fuera de ella').add_to(m)
+    folium.GeoJson(geo['cobertura'],name='Cobertura DTM completa · sin recorte por deslinde',show=False,style_function=lambda f:dict(color='#e0af48',weight=2,fillColor='#e0af48',fillOpacity=.12),tooltip='Cobertura topográfica total; incluye sector norte fuera del deslinde').add_to(m)
     pal=['#57bda9','#f2c970','#87b6d9','#c9a6cf','#f39975']
     for i,f in enumerate(geo['lotes']['features']):f['properties']['color']=pal[i%len(pal)]
     folium.GeoJson(geo['lotes'],name='Lotes de subdivisión · 10',style_function=lambda f:dict(color=f['properties']['color'],weight=2,fillColor=f['properties']['color'],fillOpacity=.19),highlight_function=lambda f:dict(weight=4,fillOpacity=.35),tooltip=folium.GeoJsonTooltip(fields=['name'],aliases=['Lote'],sticky=False)).add_to(m)
@@ -77,28 +77,48 @@ def main():
     for _,lot in lots.iterrows():
         p=lot.geometry.representative_point();folium.Marker([p.y,p.x],icon=folium.DivIcon(html=f'<span class="lot-label">{html.escape(lot["name"])}</span>')).add_to(labels)
     folium.GeoJson(geo['caminos'],name='Camino vehicular',style_function=lambda f:dict(color='#d1c0a4',weight=1,fillColor='#c3b69e',fillOpacity=.6),tooltip='Camino vehicular según subdivisión').add_to(m)
-    for f in geo['hidrografia']['features']:f['properties']['regimen']='Permanente, según propietario' if f['properties']['tipo']=='arroyo' else 'Bajo caudal; posible tramo subterráneo'
-    folium.GeoJson(geo['hidrografia'],name='Arroyos y quebradas',style_function=lambda f:dict(color='#37c4ef' if f['properties']['tipo']=='arroyo' else '#99ced4',weight=3,dashArray=None if f['properties']['tipo']=='arroyo' else '6 5'),tooltip=folium.GeoJsonTooltip(fields=['id','tipo','regimen'],aliases=['Cauce','Tipo','Referencia hidrológica'])).add_to(m)
+    inventory={s['stream_id']:s for s in r['stream_inventory']}
+    for f in geo['hidrografia']['features']:
+        props=f['properties']; inv=inventory[props['id']]
+        props.update(nombre=inv['stream_name'],cobertura=f"{inv['dtm_coverage_pct']:.1f}% del cauce con DTM",prioridad=inv['priority'],regimen='Permanente, según propietario' if props['tipo']=='arroyo' else 'No permanente; requeriría perforación según propietario. Última prioridad.')
+    for tipo,name,show in [('arroyo','Prioridad 1 · arroyos permanentes completos',True),('quebrada','Última prioridad · quebradas no permanentes',False)]:
+        data=dict(type='FeatureCollection',features=[f for f in geo['hidrografia']['features'] if f['properties']['tipo']==tipo])
+        folium.GeoJson(data,name=name,show=show,style_function=lambda f:dict(color='#f3ca69' if f['properties']['id']==2 else '#37c4ef' if f['properties']['tipo']=='arroyo' else '#aeb8bc',weight=4 if f['properties']['id']==2 else 2.5,dashArray=None if f['properties']['tipo']=='arroyo' else '6 5'),tooltip=folium.GeoJsonTooltip(fields=['nombre','id','regimen','cobertura'],aliases=['Cauce','ID','Régimen declarado','Topografía'])).add_to(m)
+    north=gpd.read_file(OUT/'hidrografia.geojson');np_=north[north.id==2].geometry.iloc[0].interpolate(.6,normalized=True)
+    folium.Marker([np_.y,np_.x],icon=folium.DivIcon(html='<span class="north-label">Arroyo norte · ID 2</span>')).add_to(m)
     zs=[f['properties']['Elevation'] for f in geo['curvas']['features']];cmap=LinearColormap(['#3fa4bf','#65c18c','#ebdc73','#d28a50','#a25b67'],vmin=min(zs),vmax=max(zs))
-    folium.GeoJson(geo['curvas'],name='Curvas de nivel · intervalo 1 m',show=False,style_function=lambda f:dict(color=cmap(f['properties']['Elevation']),weight=1.3 if f['properties']['Elevation']%5==0 else .65,opacity=.85),tooltip=folium.GeoJsonTooltip(fields=['Elevation'],aliases=['Cota DTM (m)'])).add_to(m)
-    groups={}
+    folium.GeoJson(geo['curvas'],name='Curvas completas · intervalo 1 m · sin recorte',show=False,style_function=lambda f:dict(color=cmap(f['properties']['Elevation']),weight=1.3 if f['properties']['Elevation']%5==0 else .65,opacity=.85),tooltip=folium.GeoJsonTooltip(fields=['Elevation'],aliases=['Cota DTM (m)'])).add_to(m)
+    groups={};downloads={}
     for cand in r['alternatives']:
         cid=cand['id'];active=cid==sel['id'];color='#ff9c4b' if cand['tipo']=='arroyo' else '#d09ce5'
-        group=folium.FeatureGroup(name=f"{cid} · {cand['tipo']} · H {cand['hb']:.1f} m"+(' · revisar perfil' if not cand['hgl_ok'] else ''),show=active).add_to(m);groups[cid]=group.get_name()
+        group=folium.FeatureGroup(name=f"P{cand['priority']} · {cid} · {cand['stream_name']} · H {cand['hb']:.1f} m"+(' · revisar perfil' if not cand['hgl_ok'] else ''),show=active).add_to(m);groups[cid]=group.get_name()
         feat=next(f for f in geo['alternativas']['features'] if f['properties']['candidate']==cid)
         folium.GeoJson(feat,style_function=lambda f,col=color:dict(color=col,weight=5,opacity=.95),tooltip=f"{cid} · Tubería {cand['length_m']:.1f} m · trazado conceptual").add_to(group)
         folium.GeoJson(cand['adduction_geojson'],style_function=lambda f:dict(color='#f2db86',weight=4,dashArray='5 4'),tooltip=f"Aducción conceptual · {cand['adduction_length_m']:.1f} m").add_to(group)
+        exterior=dict(type='FeatureCollection',features=[f for f in geo['tramos_fuera_deslinde']['features'] if f['properties']['candidate']==cid])
+        if exterior['features']:
+            folium.GeoJson(exterior,style_function=lambda f:dict(color='#ed6565',weight=4,dashArray='7 5'),tooltip=f"{cid} · Fuera del deslinde: acceso y tenencia pendientes de validación").add_to(group)
         for key,title,zkey,letter in [('intake','Bocatoma','intake_z','B'),('chamber','Cámara de carga','chamber_z','C'),('tail','Turbina / restitución','tail_z','T')]:
             lon,lat=cand['points_wgs84'][key]
-            popup=f"<b>{title} · {cid}</b><br>Cota del terreno: {cand[zkey]:.2f} m<br>Lat: {lat:.7f} · Lon: {lon:.7f}<br><small>Ubicación conceptual. Nivel de agua, inundación y emplazamiento de obra pendientes de terreno.</small>"
+            where='Dentro del deslinde original' if cand['point_in_property'][key] else 'FUERA DEL DESLINDE · acceso y tenencia por verificar'
+            popup=f"<b>{title} · {cid}</b><br>{cand['stream_name']} · prioridad {cand['priority']}<br><b>{where}</b><br>Cota del terreno: {cand[zkey]:.2f} m<br>Lat: {lat:.7f} · Lon: {lon:.7f}<br><small>Ubicación conceptual. Nivel de agua, inundación y emplazamiento de obra pendientes de terreno.</small>"
             folium.Marker([lat,lon],tooltip=title,icon=folium.DivIcon(html=f'<span class="site-pin" style="border-color:{color}">{letter}</span>'),popup=folium.Popup(popup,max_width=280)).add_to(group)
+        # Exportaciones por alternativa: la descarga refleja el selector activo.
+        from shapely.geometry import shape, Point
+        features=[dict(name=title,geometry=Point(cand['points_wgs84'][key])) for key,title in [('intake','Bocatoma'),('chamber','Cámara de carga'),('tail','Turbina / restitución')]]
+        features += [dict(name='Aducción',geometry=shape(cand['adduction_geojson']['features'][0]['geometry'])),dict(name='Tubería de presión',geometry=shape(feat['geometry']))]
+        proposal=gpd.GeoDataFrame(features,crs=4326)
+        kmz_c=kmz_bytes(proposal,cand);(OUT/f'la_cantina_{cid}.kmz').write_bytes(kmz_c)
+        import csv
+        buf=io.StringIO(newline='');wr=csv.DictWriter(buf,fieldnames=list(cand['scenarios'][0]));wr.writeheader();wr.writerows(cand['scenarios'])
+        downloads[cid]=dict(kmz=base64.b64encode(kmz_c).decode(),csv=base64.b64encode(buf.getvalue().encode('utf-8-sig')).decode())
     folium.LayerControl(position='topright',collapsed=True).add_to(m)
     Fullscreen(position='topright',title='Pantalla completa').add_to(m)
     MeasureControl(position='topright',primary_length_unit='meters',secondary_length_unit='kilometers',primary_area_unit='hectares').add_to(m)
     MousePosition(position='bottomright',separator=' · ',prefix='WGS84',num_digits=6).add_to(m)
     kmz=kmz_bytes(gpd.read_file(OUT/'propuesta.geojson'),sel);(OUT/'la_cantina_propuesta.kmz').write_bytes(kmz)
     # KMZ, CSV y JSON incorporados para conservar el archivo único.
-    payload=dict(results=r,groups=groups,map_name=m.get_name(),kmz=base64.b64encode(kmz).decode(),
+    payload=dict(results=r,groups=groups,downloads=downloads,map_name=m.get_name(),kmz=base64.b64encode(kmz).decode(),
                  csv=base64.b64encode((OUT/'escenarios.csv').read_bytes()).decode(),
                  geojson=base64.b64encode((OUT/'propuesta.geojson').read_bytes()).decode())
     panel=(ROOT/'viewer_panel.html').read_text(encoding='utf8').replace('__PAYLOAD__',json.dumps(payload,ensure_ascii=False).replace('</','<\\/'))
@@ -108,7 +128,7 @@ def main():
     m.add_child(behavior)
     m.get_root().header.add_child(folium.Element('<title>La Cantina | Atlas hidroeléctrico</title><meta name="description" content="Prefactibilidad hidroeléctrica: lotes, topografía, alternativas y escenarios de generación.">'))
     m.save(DIST/'index.html');shutil.copy2(DIST/'index.html',ROOT/'index.html')
-    for name in ['la_cantina_propuesta.kmz','escenarios.csv','results.json','propuesta.geojson','perfil_tuberia.png']:
+    for name in ['la_cantina_propuesta.kmz','escenarios.csv','escenarios_todas_alternativas.csv','results.json','inventario_cauces.json','propuesta.geojson','curvas_completas.geojson','tramos_fuera_deslinde.geojson','perfil_tuberia.png']+[f"la_cantina_{c['id']}.kmz" for c in r['alternatives']]:
         shutil.copy2(OUT/name,DIST/name)
     print('Visor generado:',DIST/'index.html','MB:',round((DIST/'index.html').stat().st_size/1e6,2))
 

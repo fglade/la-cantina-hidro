@@ -6,20 +6,22 @@ Estudio geoespacial en Python y visor interactivo de alternativas de microhidroe
 
 ![Vista del visor](outputs/visor_final.png)
 
-## Resultado de prefactibilidad
+## Revisión 2 · arroyo norte incluido
 
-La alternativa base **C1-2-1**, en el arroyo 1, presenta un salto bruto estimado de **13,23 m**, una aducción de **6,0 m** y una tubería de presión de **30,0 m** en longitud 3D. El trazado calculado queda dentro del deslinde y evita los interiores de los lotes.
+La alternativa base **C2-1-1**, en el **arroyo norte (ID 2)**, presenta un salto bruto estimado de **172,91 m**, una aducción de **6,0 m** y una tubería de presión de **720,0 m** en longitud 3D. Se analizan los cauces completos donde existe DTM, sin recortarlos por el deslinde. El trazado evita interiores de lotes, pero **374,0 m de tubería en planta y 6,0 m de aducción quedan fuera del deslinde**, sujetos a validar acceso y tenencia.
+
+Esta revisión sustituye la selección anterior de 13,23 m. **Los arroyos permanentes tienen prioridad 1. Las quebradas no permanentes son de última prioridad**, porque acceder al agua requeriría perforar según la aclaración del propietario. Las quebradas no participan en la selección principal.
 
 | Caudal hipotético | Diámetro interior de cálculo | Potencia eléctrica | Energía anual estimada |
 |---:|---:|---:|---:|
-| 10 L/s | 4 pulgadas | 0,69 kW | 4.851 kWh |
-| 25 L/s | 6 pulgadas | 1,74 kW | 12.185 kWh |
-| 50 L/s | 8 pulgadas | 3,46 kW | 24.280 kWh |
-| 100 L/s | 10 pulgadas | 6,74 kW | 47.240 kWh |
+| 10 L/s | 5 pulgadas | 10,77 kW | 75.470 kWh |
+| 25 L/s | 8 pulgadas | 27,17 kW | 190.425 kWh |
+| 50 L/s | 10 pulgadas | 54,19 kW | 379.781 kWh |
+| 100 L/s | 12 pulgadas | 107,57 kW | 753.837 kWh |
 
-Cada escenario usa un diámetro interior distinto. La eficiencia global supuesta es 65% y el factor de planta supuesto es 80%. Los diámetros son interiores idealizados, no designaciones nominales comerciales.
+Cada escenario usa un diámetro interior distinto. La eficiencia global supuesta es 65% y el factor de planta supuesto es 80%. Los diámetros son interiores idealizados, no designaciones nominales comerciales; se dimensionan también para conservar presión en la meseta inicial del arroyo norte. Familia de turbina sugerida: **Pelton / Turgo**. La presión estática preliminar ronda 17 bar; falta revisar presión de trabajo y transitorios.
 
-**Estos resultados no confirman factibilidad constructiva ni económica.** No existen aforos de campo. El DTM cubre aproximadamente el **50,6% del deslinde original**, y la propuesta base está junto al borde del levantamiento. Deben verificarse las cotas, la alineación del cauce, los niveles de agua, el caudal derivable y el emplazamiento seguro de las obras. El informe detalla los supuestos y las alternativas de quebradas de mayor salto.
+**Estos resultados no confirman factibilidad constructiva ni económica.** No existen aforos de campo. El DTM cubre aproximadamente el **50,6% del deslinde original**, pero se utiliza también la topografía exterior disponible. Se conservan **los seis cauces y las 512 curvas de nivel completos**, sin recorte predial. El arroyo norte tiene unos 648 m con DTM (42,9% de su longitud total); el arroyo 6 sigue visible sin topografía suficiente para calcular potencia. Deben verificarse cotas, alineación del cauce, niveles de agua, caudal derivable y emplazamiento seguro. Incluir obras exteriores en el estudio no acredita acceso para construirlas.
 
 ## Contenido
 
@@ -38,6 +40,8 @@ Cada escenario usa un diámetro interior distinto. La eficiencia global supuesta
 
 Los TIF originales, DSM/DTM, DXF, PDF, el entorno Python local y los archivos internos del servicio de publicación quedan fuera del repositorio. Las imágenes raster reducidas del visor sí se incluyen y contienen información geográfica del predio. La publicación pública de estos datos fue autorizada por el propietario.
 
+La revisión agrega `outputs/curvas_completas.geojson` sin simplificar, `outputs/inventario_cauces.json`, `outputs/tramos_fuera_deslinde.geojson`, `outputs/escenarios_todas_alternativas.csv` y un KMZ por alternativa. Las curvas del visor conservan toda la extensión original y se simplifican 0,75 m únicamente para su representación web. Los tramos exteriores se marcan en rojo discontinuo.
+
 ## Abrir el visor
 
 Descargar el repositorio y abrir `index.html` en un navegador con acceso a Internet, o servirlo localmente:
@@ -46,7 +50,7 @@ Descargar el repositorio y abrir `index.html` en un navegador con acceso a Inter
 python -m http.server 8000
 ```
 
-Visitar `http://localhost:8000`. Los fondos Esri World Imagery/OpenTopoMap y las bibliotecas JavaScript necesitan Internet. Las ortofotos reducidas y los datos del estudio están incorporados al HTML. Las descargas KMZ y CSV del panel corresponden siempre a la propuesta base, aunque se explore otra alternativa.
+Visitar `http://localhost:8000`. Los fondos Esri World Imagery/OpenTopoMap y las bibliotecas JavaScript necesitan Internet. Las ortofotos reducidas y los datos del estudio están incorporados al HTML. Las descargas KMZ y CSV del panel corresponden a la **alternativa seleccionada**. La capa de quebradas está desactivada por defecto y aparece en última prioridad.
 
 ## Entorno Python
 
@@ -80,7 +84,7 @@ python verify_outputs.py
 python make_report.py
 ```
 
-El constructor actualiza `index.html` y una copia en `sites/la-cantina-hidro/dist/`, carpeta local excluida de Git. `verify_outputs.py` genera `outputs/viewer-scripts.js`; si Node.js está instalado, comprobar también su sintaxis:
+El constructor actualiza `index.html` y una copia en `sites/la-cantina-hidro/dist/`, carpeta local excluida de Git. Las verificaciones comprueban que el arroyo norte entra en la evaluación, que las curvas y cauces no estén recortados, las prioridades, las longitudes exteriores, los perfiles y los cálculos de todas las alternativas. `verify_outputs.py` genera `outputs/viewer-scripts.js`; si Node.js está instalado, comprobar también su sintaxis:
 
 ```bash
 node --check outputs/viewer-scripts.js
