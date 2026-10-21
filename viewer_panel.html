@@ -1,79 +1,423 @@
 <style>
-:root{--ink:#152e32;--muted:#617579;--paper:#f6f6ef;--line:#dce3dc;--teal:#18796b;--orange:#df8137}*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;color:var(--ink)}.leaflet-container{background:#b7c6bc}.topbar{position:fixed;inset:0 0 auto 0;height:70px;z-index:1100;background:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:0 27px;border-bottom:1px solid var(--line);box-shadow:0 2px 12px #092c3012}.brand{display:flex;align-items:center;gap:13px}.brand svg{width:35px;height:35px}.brand strong{font:700 22px Georgia,serif;letter-spacing:-.4px}.brand small{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:3px}.topnote{display:flex;align-items:center;gap:16px;font-size:11px;color:var(--muted)}.badge{border:1px solid #d5ba7b;color:#78602a;background:#fbf1d8;padding:7px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.4px}.panel{position:fixed;z-index:1050;left:18px;top:88px;bottom:28px;width:365px;background:var(--paper);border-radius:14px;box-shadow:0 8px 30px #07292738;overflow-y:auto;scrollbar-width:thin}.panel-body{padding:23px}.eyebrow{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal);font-weight:bold}.panel h1{font:normal 29px/1.12 Georgia,serif;margin:9px 0 12px}.intro{font-size:12px;line-height:1.55;color:var(--muted);margin:0 0 19px}.field-label{font-size:11px;font-weight:bold;margin:0 0 7px;display:block}select{width:100%;padding:10px 9px;border:1px solid #ccd7ce;background:white;color:var(--ink);border-radius:6px;font-size:12px;margin-bottom:10px}.site-note{font-size:11px;line-height:1.5;color:#796025;background:#fbf0d8;border-left:3px solid #d2a74c;padding:10px;margin:0 0 16px}.scenario-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:18px}.scenario-tabs button{padding:9px 0;border:1px solid #ccd7ce;color:var(--ink);background:transparent;border-radius:6px;cursor:pointer;font-size:12px}.scenario-tabs button.active{background:var(--teal);color:white;border-color:var(--teal)}.power{padding:18px 19px;background:#153f3d;color:#f9fcf0;border-radius:9px}.power-label{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;opacity:.75}.power-number{font-size:46px;font-weight:500;letter-spacing:-2px;line-height:1.2;margin:5px 0}.power-number span{font-size:17px;letter-spacing:0}.power-foot{font-size:11px;color:#b9d6c6}.metrics{display:grid;grid-template-columns:1fr 1fr;margin:17px 0 0}.metric{padding:11px 0;border-bottom:1px solid var(--line)}.metric:nth-child(even){padding-left:12px}.metric small{display:block;font-size:10px;color:var(--muted);margin-bottom:5px}.metric b{font-size:17px;font-weight:500}.metric b span{font-size:11px}.turbine{font-size:12px;padding:14px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center}.turbine small{color:var(--muted);font-size:10px}.turbine strong{display:block;font-size:12px;margin-top:3px}.section-label{display:flex;justify-content:space-between;align-items:center;margin:19px 0 10px;font-size:11px;font-weight:bold}.section-label span{font-size:10px;color:var(--muted);font-weight:normal}table{width:100%;border-collapse:collapse;font-size:11px}th{color:var(--muted);font-size:9px;text-transform:uppercase;line-height:1.3;font-weight:500}td,th{text-align:right;padding:8px 4px;border-bottom:1px solid var(--line)}td:first-child,th:first-child{text-align:left}tr.chosen{background:#deeadf;color:#124d40}tbody tr{cursor:pointer}.fine{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.downloads{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:17px 0}.downloads button,.outline-btn{background:transparent;border:1px solid #b6c7bb;color:var(--ink);padding:10px 5px;border-radius:6px;font-size:11px;cursor:pointer}.downloads button:first-child{border-color:var(--teal);color:var(--teal)}details{border-top:1px solid var(--line);padding:13px 0;font-size:11px;line-height:1.55}summary{cursor:pointer;font-weight:bold}details p{color:var(--muted);margin:9px 0}.formula{background:#e9eee6;padding:8px;border-radius:4px;font:11px/1.65 monospace;overflow-wrap:anywhere}.source-link{color:var(--teal)}.legend{position:fixed;bottom:28px;right:12px;z-index:1000;background:var(--paper);border-radius:8px;box-shadow:0 2px 12px #092c3025;padding:11px 14px;font-size:10px;line-height:1.9}.legend b{display:block;font-weight:500;margin-bottom:4px;color:var(--muted);font-size:9px;letter-spacing:1px;text-transform:uppercase}.legend i{display:inline-block;width:22px;border-top:3px solid;margin-right:7px;vertical-align:middle}.lot-label{background:#183735dc;color:white;border:1px solid #e4ebcfa8;border-radius:4px;padding:3px 5px;font-size:10px;box-shadow:0 1px 3px #0006}.site-pin{display:flex;width:25px;height:25px;align-items:center;justify-content:center;border:3px solid;background:#163936;color:#fff;border-radius:50%;font-size:11px;font-weight:bold;box-shadow:0 2px 7px #0008}.leaflet-top{top:85px!important}.leaflet-control-layers{font-size:11px!important;max-width:330px}.leaflet-bottom.leaflet-left{left:400px}.leaflet-control-attribution{font-size:8px!important;max-width:65vw}#profile{width:100%;height:100px;display:block;background:#edf0e8;border-radius:6px}.profile-key{display:flex;gap:12px;font-size:9px;color:var(--muted);margin-top:6px}.profile-key i{display:inline-block;width:13px;border-top:2px solid;margin-right:4px;vertical-align:middle}.mobile-toggle{display:none}.map-actions{position:fixed;top:87px;left:399px;z-index:1000;display:flex;gap:6px}.map-actions button{background:var(--paper);border:0;border-radius:7px;padding:10px 12px;box-shadow:0 2px 9px #0002;font-size:11px;color:var(--ink);cursor:pointer}.alt-table td{font-size:10px}.alt-table tr.current{color:var(--teal);font-weight:bold}.alt-table tr.invalid{color:#99632c}#status-line{margin-top:7px;color:#667b6c;font-size:10px}.leaflet-popup-content{line-height:1.5}.report-date{font-size:9px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
-@media(max-width:760px){.topbar{height:61px;padding:0 15px}.brand strong{font-size:19px}.brand small{font-size:8px}.brand svg{width:27px}.topnote>span:first-child{display:none}.badge{font-size:8px;padding:6px}.panel{left:10px;top:auto;bottom:12px;width:calc(100% - 20px);max-height:52vh;border-radius:12px}.panel-body{padding:18px}.panel h1{font-size:25px}.legend{display:none}.map-actions{top:74px;left:12px}.leaflet-top{top:71px!important}.leaflet-bottom.leaflet-left{left:5px}.leaflet-control-attribution{max-width:85vw}.mobile-toggle{display:block;position:sticky;top:0;background:var(--paper);z-index:2;text-align:center;padding:7px;border:0;width:100%;color:var(--teal);font-size:10px;border-bottom:1px solid var(--line)}.panel.closed .panel-body{display:none}.leaflet-control-mouseposition{display:none}}
+:root {
+  --ink: #132a2e;
+  --ink-soft: #2c464a;
+  --muted: #52676b;
+  --paper: #f6f6ef;
+  --paper-alt: #ecefe4;
+  --card: #ffffff;
+  --line: #d2dcd3;
+  --line-strong: #afc0b3;
+  --forest: #153f3d;
+  --forest-dark: #0d2b29;
+  --teal: #167567;
+  --teal-light: #e0f0ec;
+  --ochre: #cf7d32;
+  --ochre-light: #fbf0d8;
+  --amber: #d99b26;
+  --danger: #c94a42;
+  --danger-bg: #fae8e5;
+  --ok: #1e704c;
+  --ok-bg: #e3f3eb;
+  --rail-w: 76px;
+  --panel-w: 410px;
+  --topbar-h: 58px;
+  --bottom-dock-h: 225px;
+  --radius: 10px;
+  --shadow: 0 8px 28px rgba(9, 38, 40, 0.18);
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0; width: 100%; height: 100%;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px; line-height: 1.5; color: var(--ink);
+  background: #b7c6bc; overflow: hidden;
+}
+.leaflet-container {
+  background: #cad5cd !important;
+  font-family: inherit !important;
+  transition: filter 0.2s ease, transform 0.25s ease;
+}
+.leaflet-container.neutral-topo-bg .leaflet-tile-pane {
+  filter: grayscale(0.85) contrast(0.85) brightness(1.06);
+}
+button, select, input, textarea {
+  font-family: inherit; font-size: 14px; color: var(--ink);
+}
+button:focus-visible, select:focus-visible, input:focus-visible,
+[tabindex]:focus-visible, summary:focus-visible, a:focus-visible {
+  outline: 2.5px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* Topbar */
+.topbar {
+  position: fixed; inset: 0 0 auto 0; height: var(--topbar-h); z-index: 1200;
+  background: var(--paper); display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px; border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgba(9, 44, 48, 0.08); gap: 12px;
+}
+.brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+.brand svg { width: 32px; height: 32px; flex-shrink: 0; }
+.brand strong { font: 700 20px Georgia, serif; letter-spacing: -0.3px; color: var(--forest); display: block; line-height: 1.1; }
+.brand small { display: block; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.top-toolbar { display: flex; align-items: center; gap: 7px; flex-wrap: nowrap; }
+.top-chip {
+  background: var(--paper-alt); border: 1px solid var(--line); color: var(--ink-soft);
+  padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; white-space: nowrap;
+}
+.badge {
+  border: 1px solid #d5ba7b; color: #6e5520; background: var(--ochre-light);
+  padding: 5px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; white-space: nowrap;
+}
+.top-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--card); border: 1px solid var(--line-strong); color: var(--ink);
+  padding: 6px 11px; min-height: 36px; border-radius: 7px; font-size: 13px; font-weight: 600;
+  cursor: pointer; white-space: nowrap; transition: all 0.15s ease;
+}
+.top-btn:hover { background: var(--teal-light); border-color: var(--teal); color: var(--forest); }
+.top-btn[aria-pressed="true"], .top-btn.active {
+  background: var(--forest); color: #fff; border-color: var(--forest);
+}
+.compass-icon {
+  display: inline-block; width: 16px; height: 16px; transition: transform 0.2s ease;
+}
+
+/* Mode Rail */
+.mode-rail {
+  position: fixed; top: var(--topbar-h); left: 0; bottom: 0; width: var(--rail-w);
+  z-index: 1150; background: var(--forest-dark); color: #d8e6e2;
+  display: flex; flex-direction: column; align-items: stretch; padding: 10px 6px; gap: 6px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.rail-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; padding: 8px 4px; min-height: 58px; border: 1px solid transparent;
+  border-radius: 9px; background: transparent; color: #c7dad6;
+  font-size: 11px; font-weight: 600; text-align: center; line-height: 1.15;
+  cursor: pointer; transition: all 0.15s ease;
+}
+.rail-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.9; }
+.rail-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.rail-btn[aria-selected="true"], .rail-btn.active {
+  background: var(--teal); color: #fff; border-color: #6fd4c4;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.28);
+}
+.rail-spacer { flex: 1; }
+
+/* Inspector Panel */
+.panel {
+  position: fixed; z-index: 1100; left: calc(var(--rail-w) + 10px);
+  top: calc(var(--topbar-h) + 10px); bottom: 12px; width: var(--panel-w);
+  background: var(--paper); border-radius: 12px; border: 1px solid var(--line);
+  box-shadow: var(--shadow); display: flex; flex-direction: column; overflow: hidden;
+  transition: transform 0.22s ease, width 0.22s ease, height 0.22s ease;
+}
+.panel.collapsed-desktop {
+  transform: translateX(calc(-100% - 14px));
+}
+.panel-header-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 14px; background: var(--paper-alt); border-bottom: 1px solid var(--line);
+  min-height: 42px; flex-shrink: 0;
+}
+.panel-mode-title {
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.9px; color: var(--teal);
+  display: flex; align-items: center; gap: 6px;
+}
+.panel-body {
+  padding: 15px 16px 28px; overflow-y: auto; flex: 1; scrollbar-width: thin;
+}
+.mode-pane { display: none; }
+.mode-pane.active { display: block; }
+
+/* Typography & Cards inside Inspector */
+.eyebrow { font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+.panel h1 { font: 700 22px/1.18 Georgia, serif; margin: 4px 0 8px; color: var(--forest); }
+.panel h2 { font: 700 17px/1.22 Georgia, serif; margin: 0 0 8px; color: var(--forest); }
+.panel h3 { font-size: 14px; font-weight: 700; margin: 14px 0 6px; color: var(--ink); }
+.intro { font-size: 14px; line-height: 1.48; color: var(--ink-soft); margin: 0 0 12px; }
+.field-label { font-size: 13px; font-weight: 700; margin: 10px 0 5px; display: flex; justify-content: space-between; align-items: center; color: var(--ink); }
+.field-label span { font-weight: 500; font-size: 12px; color: var(--muted); }
+
+select, input[type="date"], input[type="number"], input[type="text"], textarea {
+  width: 100%; padding: 8px 10px; min-height: 38px; border: 1px solid var(--line-strong);
+  background: var(--card); color: var(--ink); border-radius: 7px; font-size: 14px; margin-bottom: 8px;
+}
+input[type="range"] { width: 100%; accent-color: var(--teal); cursor: pointer; min-height: 26px; }
+
+.card-box {
+  background: var(--card); border: 1px solid var(--line); border-radius: 9px;
+  padding: 11px 13px; margin-bottom: 11px;
+}
+.card-box.tinted { background: #e8ede0; border-color: #c5d1be; }
+.card-box.warn { background: var(--ochre-light); border-left: 4px solid var(--amber); color: #5e4715; }
+.card-box.danger { background: var(--danger-bg); border-left: 4px solid var(--danger); color: #6e231e; }
+.card-box.ok { background: var(--ok-bg); border-left: 4px solid var(--ok); color: #124a32; }
+
+.site-note {
+  font-size: 13px; line-height: 1.48; color: #6b521c; background: var(--ochre-light);
+  border-left: 3.5px solid #d2a74c; padding: 10px 12px; border-radius: 0 7px 7px 0; margin: 0 0 12px;
+}
+.site-note.external { border-left-color: var(--danger); background: var(--danger-bg); color: #783028; }
+
+.btn-row, .scenario-tabs {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(68px, 1fr)); gap: 6px; margin-bottom: 10px;
+}
+.btn-secondary, .scenario-tabs button, .mini-action, .downloads button, .pill-btn {
+  padding: 7px 10px; min-height: 36px; border: 1px solid var(--line-strong);
+  color: var(--ink); background: var(--card); border-radius: 7px; cursor: pointer;
+  font-size: 13px; font-weight: 600; transition: all 0.14s ease;
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+}
+.scenario-tabs button:hover, .mini-action:hover, .downloads button:hover, .pill-btn:hover {
+  border-color: var(--teal); background: var(--teal-light);
+}
+.scenario-tabs button.active, .scenario-tabs button[aria-pressed="true"],
+.pill-btn.active, .pill-btn[aria-pressed="true"] {
+  background: var(--teal); color: #fff; border-color: var(--teal);
+}
+.primary-btn {
+  width: 100%; padding: 9px 14px; min-height: 40px; background: var(--forest); color: #fff;
+  border: 1px solid var(--forest); border-radius: 8px; font-size: 14px; font-weight: 700;
+  cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+.primary-btn:hover { background: var(--teal); border-color: var(--teal); }
+.primary-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.power { padding: 14px 16px; background: var(--forest); color: #f9fcf0; border-radius: 9px; margin-bottom: 12px; }
+.power-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; opacity: 0.82; }
+.power-number { font-size: 34px; font-weight: 700; letter-spacing: -1px; line-height: 1.15; margin: 4px 0; }
+.power-number span { font-size: 16px; letter-spacing: 0; font-weight: 500; }
+.power-foot { font-size: 12px; color: #bfe0d0; }
+
+.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin: 10px 0 12px; }
+.metric {
+  background: var(--card); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px;
+}
+.metric small, .metric .k { display: block; font-size: 11px; color: var(--muted); margin-bottom: 2px; line-height: 1.25; }
+.metric b, .metric .v { display: block; font-size: 15.5px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.metric b span { font-size: 12px; font-weight: 500; }
+.metric .s { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.25; }
+
+.section-label {
+  display: flex; justify-content: space-between; align-items: center;
+  margin: 14px 0 7px; font-size: 13px; font-weight: 700; color: var(--forest);
+}
+.section-label span { font-size: 11.5px; color: var(--muted); font-weight: 500; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--card); border-radius: 7px; overflow: hidden; }
+th { color: var(--muted); font-size: 11px; text-transform: uppercase; line-height: 1.25; font-weight: 700; background: var(--paper-alt); }
+td, th { text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--line); }
+td:first-child, th:first-child { text-align: left; }
+tr.chosen, tr[aria-selected="true"] { background: #d6ebe4; color: #0f4438; font-weight: 600; }
+tbody tr.interactive-row { cursor: pointer; }
+tbody tr.interactive-row:hover { background: #eaf4f0; }
+
+.fine { font-size: 12px; color: var(--muted); line-height: 1.48; margin-top: 7px; }
+.downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin: 11px 0; }
+.price { font: 700 21px Georgia, serif; color: var(--forest); margin: 5px 0; }
+.catalog a { color: var(--teal); font-weight: 600; }
+.catalog p { padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+
+details { border-top: 1px solid var(--line); padding: 10px 0; font-size: 13px; line-height: 1.5; }
+summary { cursor: pointer; font-weight: 700; color: var(--ink); padding: 2px 0; }
+details p { color: var(--ink-soft); margin: 8px 0; }
+.source-link { color: var(--teal); font-weight: 600; }
+
+/* Candidate Comparison Cards */
+.cand-card, .candidate-card {
+  border: 1.5px solid var(--line-strong); background: var(--card); border-radius: 9px;
+  padding: 10px 12px; margin-bottom: 8px; cursor: pointer; transition: all 0.14s ease;
+}
+.cand-card:hover, .candidate-card:hover { border-color: var(--teal); background: #f4faf8; }
+.cand-card.active, .cand-card[aria-selected="true"], .candidate-card.active {
+  border-color: var(--teal); background: #e2f2ee; box-shadow: 0 2px 8px rgba(22,117,103,0.15);
+}
+.cand-head, .candidate-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.cand-head strong, .candidate-title { font-size: 13.5px; font-weight: 700; color: var(--forest); }
+.candidate-sub { font-size: 12px; color: var(--muted); margin-bottom: 6px; line-height: 1.35; }
+.cand-pill, .ok-pill, .warn-pill {
+  font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 12px;
+  background: var(--forest); color: #fff; white-space: nowrap;
+}
+.warn-pill { background: var(--amber); color: #fff; }
+.cand-meta, .candidate-badges { display: flex; flex-wrap: wrap; gap: 5px; font-size: 11.5px; color: var(--ink-soft); margin-top: 5px; }
+.cand-meta span, .candidate-badges span { background: rgba(255,255,255,0.88); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--line); }
+
+/* Resizable Bottom Dock Panel */
+.bottom-dock {
+  position: fixed; left: calc(var(--rail-w) + var(--panel-w) + 22px); right: 14px; bottom: 12px;
+  height: var(--bottom-dock-h); z-index: 1080; background: var(--paper);
+  border: 1px solid var(--line-strong); border-radius: 12px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; overflow: hidden; transition: height 0.18s ease, left 0.22s ease;
+}
+.bottom-dock.minimized { height: 40px !important; }
+.bottom-dock.expanded { height: 350px !important; }
+.bottom-dock.full-left { left: calc(var(--rail-w) + 14px); }
+.dock-resizer {
+  height: 6px; cursor: ns-resize; background: linear-gradient(90deg, transparent 38%, var(--line-strong) 38%, var(--line-strong) 62%, transparent 62%);
+  flex-shrink: 0;
+}
+.dock-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 12px; background: var(--paper-alt); border-bottom: 1px solid var(--line);
+  min-height: 34px; gap: 8px; flex-shrink: 0;
+}
+.dock-tabs { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.dock-tab {
+  background: transparent; border: 1px solid transparent; padding: 4px 9px;
+  border-radius: 6px; font-size: 12px; font-weight: 700; color: var(--muted); cursor: pointer;
+}
+.dock-tab.active, .dock-tab[aria-selected="true"] {
+  background: var(--card); border-color: var(--line-strong); color: var(--forest);
+}
+.dock-controls { display: flex; align-items: center; gap: 5px; font-size: 12px; }
+.dock-controls button {
+  padding: 3px 8px; min-height: 26px; font-size: 12px; border: 1px solid var(--line-strong);
+  background: var(--card); border-radius: 5px; cursor: pointer; font-weight: 600;
+}
+.dock-body { flex: 1; padding: 6px 12px; overflow: auto; position: relative; display: flex; flex-direction: column; }
+
+/* Dynamic Legend & Map Overlays */
+.legend {
+  position: fixed; top: calc(var(--topbar-h) + 10px); right: 56px; z-index: 1020;
+  background: rgba(246, 246, 239, 0.95); backdrop-filter: blur(4px);
+  border: 1px solid var(--line-strong); border-radius: 9px; box-shadow: 0 4px 16px rgba(9, 44, 48, 0.16);
+  padding: 9px 12px; font-size: 12px; line-height: 1.6; max-width: 260px; max-height: 55vh; overflow-y: auto;
+}
+.legend-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 4px; }
+.legend b { font-weight: 700; color: var(--forest); font-size: 11px; letter-spacing: 0.7px; text-transform: uppercase; }
+.legend i { display: inline-block; width: 20px; border-top: 3.5px solid; margin-right: 7px; vertical-align: middle; }
+.legend .swatch { display: inline-block; width: 13px; height: 13px; border-radius: 3px; margin-right: 7px; vertical-align: middle; border: 1px solid rgba(0,0,0,0.2); }
+.ramp-bar { height: 9px; border-radius: 4px; margin: 4px 0 2px; border: 1px solid rgba(0,0,0,0.15); }
+.ramp-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+
+/* Contour & Map Labels */
+.lot-label {
+  background: rgba(21, 55, 53, 0.88); color: #fff; border: 1px solid rgba(228, 235, 207, 0.7);
+  border-radius: 4px; padding: 2px 6px; font-size: 11px; font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.north-label {
+  display: inline-block; white-space: nowrap; background: #f3ca69f2; color: #1b332f;
+  padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; border: 1px solid #8a6c1d;
+}
+.site-pin {
+  display: flex; width: 26px; height: 26px; align-items: center; justify-content: center;
+  border: 3px solid; background: #163936; color: #fff; border-radius: 50%;
+  font-size: 12px; font-weight: 700; box-shadow: 0 2px 7px rgba(0,0,0,0.55);
+}
+.cota-tag {
+  position: absolute; transform: translate(-50%, -50%);
+  font-size: 11px; font-weight: 700; color: #1d3532;
+  background: rgba(246, 246, 239, 0.88); padding: 0 4px; border-radius: 3px;
+  border: 1px solid rgba(29, 53, 50, 0.25); white-space: nowrap;
+  text-shadow: 0 0 3px #fff, 0 0 5px #fff; pointer-events: none;
+}
+.cota-tag.major { font-size: 11.5px; color: #0f2926; border-color: rgba(21, 63, 61, 0.5); background: rgba(251, 245, 220, 0.94); }
+
+/* Floating Cursor / Inspection Bar */
+.cursor-readout {
+  position: fixed; left: calc(var(--rail-w) + var(--panel-w) + 22px); top: calc(var(--topbar-h) + 10px);
+  z-index: 1020; background: rgba(21, 46, 50, 0.92); color: #f6f6ef;
+  padding: 6px 12px; border-radius: 8px; font-size: 12.5px; display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.22); pointer-events: none; max-width: calc(100vw - 560px); flex-wrap: wrap;
+}
+.cursor-readout .nodata-pill { background: var(--danger); color: #fff; padding: 1px 6px; border-radius: 4px; font-weight: 700; }
+.cursor-readout .ok-pill { background: var(--teal); color: #fff; padding: 1px 6px; border-radius: 4px; font-weight: 700; }
+
+/* 3D WebGL Viewer Overlay */
+.webgl-overlay {
+  position: fixed; left: calc(var(--rail-w) + var(--panel-w) + 16px); top: calc(var(--topbar-h) + 8px);
+  right: 12px; bottom: calc(var(--bottom-dock-h) + 20px); z-index: 1060;
+  background: #102124; border: 2px solid var(--teal); border-radius: 12px;
+  box-shadow: 0 12px 38px rgba(0,0,0,0.45); display: none; flex-direction: column; overflow: hidden;
+}
+.webgl-overlay.active, .webgl-overlay.open { display: flex; }
+.webgl-bar {
+  display: flex; align-items: center; justify-content: space-between; padding: 8px 14px;
+  background: #162f33; color: #eaf4f2; font-size: 12.5px; gap: 10px; flex-wrap: wrap;
+}
+.webgl-canvas-wrap { flex: 1; position: relative; overflow: hidden; }
+#terrain-3d-canvas { width: 100%; height: 100%; display: block; cursor: grab; }
+#terrain-3d-canvas:active { cursor: grabbing; }
+
+/* Leaflet Control positioning adjustments */
+.leaflet-top { top: calc(var(--topbar-h) + 10px) !important; }
+.leaflet-bottom.leaflet-right { bottom: calc(var(--bottom-dock-h) + 18px) !important; }
+.leaflet-bottom.leaflet-left { left: calc(var(--rail-w) + var(--panel-w) + 22px) !important; bottom: calc(var(--bottom-dock-h) + 18px) !important; }
+.leaflet-control-layers { font-size: 12px !important; max-width: 320px; border-radius: 8px !important; }
+.leaflet-control-attribution { font-size: 10px !important; max-width: 50vw; }
+
+.mobile-sheet-bar { display: none; }
+
+/* Responsive Tablet & Mobile */
+@media (max-width: 1080px) {
+  :root { --panel-w: 355px; }
+  .top-chip.hide-tablet { display: none; }
+}
+@media (max-width: 768px) {
+  :root {
+    --topbar-h: 52px;
+    --rail-w: 0px;
+    --panel-w: 100vw;
+    --bottom-dock-h: 150px;
+  }
+  .topbar { padding: 0 10px; gap: 6px; }
+  .brand strong { font-size: 16px; white-space: nowrap; }
+  .brand small, .top-chip, .top-chip.amber, .topnote, .topbar .badge { display: none !important; }
+  .top-toolbar { gap: 4px; }
+  .top-btn { padding: 4px 8px; font-size: 11.5px; min-height: 32px; }
+  .top-btn span.btn-text { display: none; }
+  .mode-rail {
+    top: auto; bottom: 0; left: 0; right: 0; width: 100%; height: 56px;
+    flex-direction: row; justify-content: space-around; padding: 4px 6px;
+    border-right: 0; border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .rail-btn { min-height: 46px; flex: 1; padding: 4px 2px; font-size: 10.5px; }
+  .rail-spacer { display: none; }
+  .panel {
+    left: 0; right: 0; top: auto; bottom: 56px; width: 100%;
+    height: 44vh; border-radius: 14px 14px 0 0; z-index: 1120;
+    transition: height 0.22s ease;
+  }
+  .panel[data-sheet="collapsed"] { height: 48px; }
+  .panel[data-sheet="half"] { height: 44vh; }
+  .panel[data-sheet="full"] { height: calc(100vh - var(--topbar-h) - 56px); }
+  .mobile-sheet-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 14px; background: var(--paper-alt); border-bottom: 1px solid var(--line);
+    cursor: pointer; flex-shrink: 0;
+  }
+  .sheet-pill { width: 38px; height: 4px; background: #9ab0a2; border-radius: 3px; margin: 0 auto 4px; }
+  .bottom-dock {
+    left: 6px; right: 6px; bottom: 110px; height: 145px; z-index: 1090; display: none;
+  }
+  .panel[data-sheet="collapsed"] ~ .bottom-dock { display: flex; bottom: 110px; }
+  .panel[data-sheet="full"] ~ .bottom-dock { display: none; }
+  .cursor-readout {
+    left: 8px; top: calc(var(--topbar-h) + 6px); max-width: calc(100vw - 60px); font-size: 11.5px; padding: 4px 8px;
+  }
+  .legend {
+    top: auto; bottom: 112px; right: 8px; max-width: 210px; font-size: 11px; padding: 8px 10px;
+  }
+  .legend.mobile-closed .legend-items { display: none; }
+  .webgl-overlay {
+    left: 6px; right: 6px; top: calc(var(--topbar-h) + 6px); bottom: 112px;
+  }
+  .leaflet-bottom.leaflet-left, .leaflet-bottom.leaflet-right { bottom: 64px !important; left: 6px !important; }
+  .leaflet-control-mouseposition { display: none; }
+}
+
+/* Printable Map View */
+@media print {
+  .mode-rail, .bottom-dock, .top-toolbar button, .leaflet-control-zoom, .leaflet-control-measure, .leaflet-control-fullscreen {
+    display: none !important;
+  }
+  .topbar { position: static; border-bottom: 2px solid #000; }
+  .panel { position: static; width: 100%; height: auto; box-shadow: none; border: 1px solid #000; margin-bottom: 12px; }
+  .legend { position: fixed; bottom: 20px; right: 20px; border: 1px solid #000; background: #fff !important; }
+}
 </style>
-<style>.north-label{display:block;width:150px;background:#f3ca69ef;color:#233d38;padding:5px 8px;border-radius:4px;font-size:11px;font-weight:bold}.site-note.external{border-left-color:#d65b51;background:#fae9df;color:#87483c}.hydro-inventory{font-size:10px;line-height:1.5}.hydro-inventory p{padding:7px 0;border-bottom:1px solid var(--line)}.map-actions{flex-wrap:wrap;max-width:430px}</style>
 <header class="topbar"><div class="brand"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3C14 12 6 19 6 27a14 14 0 0 0 28 0C34 19 26 12 20 3Z" fill="#18796b"/><path d="m23 14-10 14h7l-3 9 12-16h-8l2-7Z" fill="#f2dc98"/></svg><div><strong>La Cantina</strong><small>Atlas de energía & territorio</small></div></div><div class="topnote"><span>Revisión 2 · arroyo norte incluido</span><span class="badge">PREFACTIBILIDAD · SIN AFORO</span></div></header>
-<aside class="panel" id="panel"><button class="mobile-toggle" onclick="document.getElementById('panel').classList.toggle('closed')">Mostrar / ocultar estudio</button><div class="panel-body">
-<div class="eyebrow">Revisión 2 / Arroyos permanentes</div><h1>Del relieve<br>a la energía.</h1><p class="intro">Arroyo norte incluido. Estudio ampliado a toda la topografía disponible, con el deslinde como referencia y las quebradas en última prioridad.</p>
-<label class="field-label" for="site-select">Alternativa de emplazamiento</label><select id="site-select" aria-label="Alternativa de emplazamiento"></select><div class="site-note" id="site-note"></div>
-<label class="field-label">Caudal hipotético · litros por segundo</label><div class="scenario-tabs" id="flows"><button data-q="10">10 L/s</button><button data-q="25">25 L/s</button><button data-q="50" class="active">50 L/s</button><button data-q="100">100 L/s</button></div>
-<div class="power"><div class="power-label">Potencia eléctrica estimada</div><div class="power-number" id="power">— <span>kW</span></div><div class="power-foot">η global 65% · caudal disponible en turbina</div></div>
-<div class="metrics"><div class="metric"><small>Salto bruto · captación → turbina</small><b id="hb">—</b></div><div class="metric"><small>Salto neto · pérdidas incluidas</small><b id="hn">—</b></div><div class="metric"><small>Tubería de presión · longitud 3D</small><b id="length">—</b></div><div class="metric"><small>Diámetro interior de cálculo</small><b id="diameter">—</b></div><div class="metric"><small>Energía mensual media*</small><b id="monthly">—</b></div><div class="metric"><small>Energía anual*</small><b id="annual">—</b></div></div>
-<div class="turbine"><span style="font-size:26px;color:#18796b">◉</span><div><small>Familia de turbina sugerida</small><strong id="turbine">—</strong></div></div>
-<div class="section-label">Cuatro escenarios<span>Diámetro propio por caudal</span></div><table aria-label="Escenarios de generación"><thead><tr><th>Q<br>L/s</th><th>D int.<br>pulg.</th><th>H neto<br>m</th><th>Potencia<br>kW</th><th>Anual*<br>kWh</th></tr></thead><tbody id="scenario-table"></tbody></table><p class="fine">*Factor de planta supuesto: 80%. Mensual = anual / 12; no es una predicción estacional. Los cuatro caudales son hipótesis, no mediciones.</p>
-<div class="section-label">Perfil de tubería<span>Distancia horizontal · m</span></div><svg id="profile" viewBox="0 0 320 100" role="img" aria-label="Perfil del terreno y línea piezométrica"></svg><div class="profile-key"><span><i style="color:#69856d"></i>Terreno DTM</span><span><i style="color:#de8135"></i>Línea piezométrica</span></div><div id="status-line"></div>
-<div class="downloads"><button id="download-kmz">↓ KMZ · alternativa actual</button><button id="download-csv">↓ CSV · alternativa actual</button></div>
-<details open><summary>Alcance corregido y prioridades</summary><p>Se conservan <b>todos los cauces y las 512 curvas de nivel</b>, sin recortarlos por el deslinde. El arroyo norte (ID 2) se evalúa en toda su extensión con DTM válido, incluso fuera del predio. La propuesta anterior de 13,23 m queda sustituida por esta revisión ampliada.</p><p><b>Prioridad 1: arroyos permanentes</b>, según información del propietario. <b>Última prioridad: quebradas no permanentes</b>; acceder al agua requeriría perforar, según el propietario. Su mayor salto no acredita un recurso hidroeléctrico disponible.</p><p>El DTM sigue cubriendo <b>50,6% del deslinde original</b>, pero el análisis usa también la topografía exterior disponible. Los tramos sin DTM quedan visibles y sin potencia calculada. <b>El deslinde no acredita acceso sobre las obras exteriores</b>: se cuantifican y marcan en rojo discontinuo.</p><p>Las ubicaciones son conceptuales sobre el cauce. Las cotas DTM son de terreno, no niveles de agua medidos. Falta definir la casa de máquinas en una margen segura, comprobar restitución, niveles y caudales en terreno.</p></details>
-<details><summary>Comparar alternativas por prioridad</summary><table class="alt-table"><thead><tr><th>Cauce / prioridad</th><th>Tramo</th><th>H bruto</th><th>L tubo</th></tr></thead><tbody id="alt-table"></tbody></table><p class="fine">La selección principal admite sólo arroyos permanentes; comprueba el perfil hidráulico, prioriza mínimo cruce de interiores y compara el salto. Las quebradas se mantienen sólo como referencia de última prioridad. Búsqueda en grilla de 2 m, sin demostrar optimalidad global.</p></details>
-<details><summary>Cobertura de los seis cauces</summary><div id="stream-inventory" class="hydro-inventory"></div><p class="fine">Todos los cursos permanecen disponibles en el control de capas. La falta de DTM no implica ausencia de potencial: requiere topografía adicional.</p></details>
-<details><summary>Hidráulica y supuestos de cálculo</summary><div id="hydraulic-detail"></div><p>Hazen–Williams: C = 145 para plástico nuevo. Accesorios: K = 3 supuesto. Se elige el menor diámetro <b>interior idealizado</b> que limita fricción a 10% de H bruto, pérdidas de tubería + accesorios a 10% del salto cámara–turbina y velocidad a 3 m/s, y mantiene el eje enterrado bajo la línea piezométrica. Esta última condición puede exigir un diámetro mayor en las mesetas del arroyo norte.</p><p>Los diámetros en pulgadas no son designaciones comerciales de HDPE/PVC. Seleccionar diámetro exterior y SDR/PN con su diámetro interior real. No se ha optimizado el costo de la tubería.</p><div class="formula">P = 9,81 × Q(m³/s) × Hn × 0,65<br>E anual = P × 8.760 × 0,80<br>Hn = Hb − ΔH aducción − hf − hm</div><p>La cámara es de lámina libre y está aguas abajo de la captación. El descenso captación–cámara se descuenta del salto bruto; la aducción requiere diseño de capacidad y niveles.</p><p>La comprobación supone enterramiento de 1 m y pérdidas distribuidas uniformemente; es preliminar, sin golpe de ariete. El alto salto exige verificar clase de presión, anclajes y transitorios. Cotas sin datum vertical certificado. DTM de 0,25618 m/píxel; curvas de 1 m simplificadas 0,75 m para web y exportación GeoJSON completa disponible. Ortomosaicos reducidos.</p><p>En quebradas, los escenarios son sólo potencial matemático. No se ha evaluado perforación, reserva subterránea ni consumo de bombeo: no representan producción aprovechable ni firme.</p></details>
-<details><summary>Validación de campo para decidir</summary><p>Aforar en captación durante estiaje y distintas estaciones; levantar niveles de agua y perfil longitudinal; verificar alineación de los cauces con el terreno; definir caudal realmente derivable, restitución, sedimentos y protección de crecidas. Revisar acceso, uso del agua y autorizaciones aplicables antes del diseño de obras.</p><p>El estudio y el visor utilizan herramientas gratuitas. No incluyen presupuesto de instalación ni acreditan rentabilidad económica.</p></details>
-<details><summary>Datos y referencias</summary><p>Insumos: KML de subdivisión y deslinde, hidro.shp, DTM, DSM y curvas del levantamiento La Cantina. El DSM se inspecciona como superficie; las cotas hidráulicas se toman exclusivamente del DTM. Los fondos Esri/OpenTopoMap y las bibliotecas web requieren Internet.</p><p><a class="source-link" href="https://www.epa.gov/water-research/epanet" target="_blank" rel="noopener">EPA · EPANET y pérdidas de carga</a><br><a class="source-link" href="https://www.energy.gov/cmei/water/types-hydropower-turbines" target="_blank" rel="noopener">DOE · selección de familias de turbinas</a></p><p>La recomendación de turbina es orientativa por relación salto/caudal. Confirmar con curvas de fabricante, rendimiento a carga parcial y niveles de restitución.</p></details>
-<div class="report-date">Revisión 2 · 19 de octubre de 2026 · Arroyo norte incluido · KMZ/CSV corresponden a la alternativa seleccionada.</div>
-</div></aside>
-<div class="map-actions"><button id="show-property">Ver área de estudio</button><button id="show-north">Arroyo norte</button><button id="show-site">Acercar a propuesta</button></div>
-<div class="legend"><b>Lectura del territorio</b><div><i style="color:#f3ca69"></i>Arroyo norte · permanente</div><div><i style="color:#37c4ef"></i>Otros arroyos · prioridad 1</div><div><i style="color:#aeb8bc;border-top-style:dashed"></i>Quebradas · última prioridad</div><div><i style="color:#ed6565;border-top-style:dashed"></i>Obra fuera del deslinde</div><div><i style="color:#ff9c4b"></i>Tubería · arroyo</div><div><i style="color:#f2db86;border-top-style:dashed"></i>Aducción</div><div>B · Bocatoma &nbsp; C · Cámara &nbsp; T · Turbina</div></div>
-<!--SCRIPT-->
-const app=__PAYLOAD__;
-const map=window[app.map_name];
-const sites=app.results.alternatives;
-let current=app.results.selected.id, q=50;
-const el=id=>document.getElementById(id);
-const nf=(n,d=1)=>new Intl.NumberFormat('es-CL',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
-const selected=()=>sites.find(s=>s.id===current);
-function changeQ(value){q=Number(value);render();}
-function render(){
- const c=selected(),s=c.scenarios.find(s=>s.q_ls===q);
- el('power').innerHTML=nf(s.power_kw,2)+' <span>kW</span>';
- el('hb').innerHTML=nf(c.hb,2)+' <span>m</span>';el('hn').innerHTML=nf(s.net_head_m,2)+' <span>m</span>';
- el('length').innerHTML=nf(c.length_m,1)+' <span>m</span>';el('diameter').innerHTML=nf(s.diameter_in,1)+' <span>pulg. int.</span>';
- el('monthly').innerHTML=nf(s.monthly_kwh,0)+' <span>kWh</span>';el('annual').innerHTML=nf(s.annual_kwh,0)+' <span>kWh</span>';el('turbine').textContent=s.turbine;
- document.querySelectorAll('#flows button').forEach(b=>b.classList.toggle('active',Number(b.dataset.q)===q));
- el('site-note').textContent=c.tipo==='arroyo'?`${c.id===app.results.selected.id?'Propuesta base':'Alternativa'} · ${c.stream_name} · prioridad 1. Caudales y niveles pendientes de aforo.`:'ÚLTIMA PRIORIDAD · quebrada no permanente; acceso al agua requeriría perforación según propietario. Sin recurso aprovechable acreditado. Los escenarios son sólo matemáticos y no descuentan bombeo.';
- if(c.requires_external_access)el('site-note').textContent+=` Tubería exterior: ${nf(c.outside_property_plan_m,1)} m en planta; aducción exterior: ${nf(c.adduction_outside_property_m,1)} m. Acceso y tenencia pendientes de validación.`;
- el('site-note').classList.toggle('external',c.requires_external_access);
- if(!c.hgl_ok)el('site-note').textContent+=' El perfil requiere corregir el trazado o profundizar la instalación; no se recomienda en su estado actual.';
- el('scenario-table').innerHTML=c.scenarios.map(a=>`<tr tabindex="0" data-q="${a.q_ls}" class="${a.q_ls===q?'chosen':''}" aria-label="Seleccionar ${a.q_ls} litros por segundo"><td>${a.q_ls}</td><td>${nf(a.diameter_in,1)}</td><td>${nf(a.net_head_m,2)}</td><td><b>${nf(a.power_kw,2)}</b></td><td>${nf(a.annual_kwh,0)}</td></tr>`).join('');
- el('scenario-table').querySelectorAll('tr').forEach(tr=>{tr.onclick=()=>changeQ(tr.dataset.q);tr.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();changeQ(tr.dataset.q)}}});
- el('hydraulic-detail').innerHTML=`<p>Captación: <b>${nf(c.intake_z,2)} m</b> · Cámara: <b>${nf(c.chamber_z,2)} m</b> · Turbina: <b>${nf(c.tail_z,2)} m</b>.<br>Aducción: ${nf(c.adduction_length_m,1)} m; descenso ${nf(s.adduction_drop_m,2)} m.<br>Fricción: ${nf(s.hf_m,3)} m · Accesorios: ${nf(s.hm_m,3)} m.<br>Pérdidas de presión: ${nf(s.loss_pct,1)}% del salto cámara–turbina.<br>Velocidad: ${nf(s.velocity_ms,2)} m/s · D interior: ${nf(s.diameter_mm,1)} mm.<br>Longitud en planta: ${nf(c.length_plan_m,1)} m.<br>Ruta en caminos/banda de 4 m junto a linderos: ${nf(c.preferred_pct,1)}%.<br>Cruce de interiores a más de 4 m del lindero: ${nf(c.interior_crossing_m,1)} m.<br><b>Fuera del deslinde: ${nf(c.outside_property_plan_m,1)} m de tubería (${nf(c.outside_property_pct,1)}% en planta) y ${nf(c.adduction_outside_property_m,1)} m de aducción.</b></p>`;
- drawProfile(c,s);
- el('alt-table').innerHTML=sites.map(a=>`<tr class="${a.id===current?'current ':''}${!a.hgl_ok?'invalid':''}" tabindex="0" data-id="${a.id}"><td>${a.stream_name}<br>P${a.priority}${a.priority===3?' · última':''}</td><td>${a.id}${!a.hgl_ok?' ⚠':''}</td><td>${nf(a.hb,1)} m</td><td>${nf(a.length_m,0)} m</td></tr>`).join('');
- el('alt-table').querySelectorAll('tr').forEach(t=>{t.onclick=()=>chooseSite(t.dataset.id,true);t.onkeydown=e=>{if(e.key==='Enter')chooseSite(t.dataset.id,true)}});
-}
-function drawProfile(c,s){
- const pp=c.route_profile,end=pp[pp.length-1].distance_m;
- const vals=pp.map(p=>p.terrain_m).concat([c.chamber_z,c.chamber_z-s.hf_m]);
- const lo=Math.min(...vals)-1,hi=Math.max(...vals)+1;
- const X=v=>12+296*v/end,Y=v=>82-66*(v-lo)/(hi-lo);
- const pts=pp.map(p=>X(p.distance_m).toFixed(2)+','+Y(p.terrain_m).toFixed(2)).join(' ');
- el('profile').innerHTML=`<path d="M12 82H308" fill="none" stroke="#c7d3c5"/><polyline points="${pts}" fill="none" stroke="#69856d" stroke-width="2"/><path d="M12 ${Y(c.chamber_z)}L308 ${Y(c.chamber_z-s.hf_m)}" stroke="#de8135" stroke-width="2"/><text x="12" y="96" fill="#617579" font-size="8">0 m</text><text x="273" y="96" fill="#617579" font-size="8">${nf(end,0)} m</text><text x="15" y="12" fill="#617579" font-size="8">${nf(hi,0)} m</text>`;
- const clear=Math.min(...pp.map(p=>c.chamber_z-s.hf_m*p.distance_m/end-(p.terrain_m-1)));
- el('status-line').textContent=(clear>=0?'✓ Perfil preliminar bajo línea piezométrica':'⚠ Perfil sobre línea piezométrica: requiere ajuste')+' · enterramiento supuesto 1 m';
-}
-function chooseSite(id,zoom){current=id;el('site-select').value=id;for(const [cid,name] of Object.entries(app.groups)){const layer=window[name];if(cid===id)map.addLayer(layer);else map.removeLayer(layer)}render();if(zoom)zoomSite();}
-function zoomSite(){const c=selected();const pts=Object.values(c.points_wgs84).map(p=>[p[1],p[0]]);map.fitBounds(pts,{paddingTopLeft:innerWidth>760?[410,110]:[40,110],paddingBottomRight:innerWidth>760?[90,100]:[40,innerHeight*.55],maxZoom:19});}
-function download(b64,name,type){const bytes=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));const u=URL.createObjectURL(new Blob([bytes],{type}));const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
-for(const priority of [1,3]){const group=document.createElement('optgroup');group.label=priority===1?'Prioridad 1 · arroyos permanentes':'Última prioridad · quebradas no permanentes';sites.filter(c=>c.priority===priority).forEach(c=>{const o=document.createElement('option');o.value=c.id;o.textContent=`${c.id===app.results.selected.id?'★ ':''}${c.stream_name} · ${c.id} · ${nf(c.hb,1)} m${!c.hgl_ok?' · revisar perfil':''}`;group.appendChild(o)});el('site-select').appendChild(group)}
-el('site-select').value=current;el('site-select').onchange=e=>chooseSite(e.target.value,true);
-document.querySelectorAll('#flows button').forEach(b=>b.onclick=()=>changeQ(b.dataset.q));
-el('download-kmz').onclick=()=>download(app.downloads[current].kmz,`la_cantina_${current}.kmz`,'application/vnd.google-earth.kmz');
-el('download-csv').onclick=()=>download(app.downloads[current].csv,`la_cantina_escenarios_${current}.csv`,'text/csv;charset=utf-8');
-el('stream-inventory').innerHTML=app.results.stream_inventory.map(s=>`<p><b>${s.stream_name} · ID ${s.stream_id} · prioridad ${s.priority}</b><br>${nf(s.dtm_valid_length_m,0)} de ${nf(s.total_length_m,0)} m con DTM (${nf(s.dtm_coverage_pct,1)}%).<br>${s.status}${s.priority===3?'<br>No permanente; perforación pendiente de evaluar.':''}</p>`).join('');
-const propertyBounds=[[-46.0681,-72.5995],[-46.0570,-72.5808]];
-function overview(){map.fitBounds(propertyBounds,{paddingTopLeft:innerWidth>760?[410,100]:[25,110],paddingBottomRight:innerWidth>760?[70,80]:[25,innerHeight*.54]});}
-el('show-property').onclick=overview;el('show-site').onclick=zoomSite;
-el('show-north').onclick=()=>{const north=sites.find(s=>s.stream_id===app.results.metadata.northern_stream_id);if(north)chooseSite(north.id,true)};
-L.control.zoom({position:'topright'}).addTo(map);
-const panel=el('panel');L.DomEvent.disableClickPropagation(panel);L.DomEvent.disableScrollPropagation(panel);
-render();overview();

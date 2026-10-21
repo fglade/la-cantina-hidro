@@ -1,0 +1,80 @@
+{
+  "algorithm": "1.9.0-adapted-true-north-cw",
+  "timezone": {
+    "iana_zone": "America/Coyhaique",
+    "fixed_utc_offset": "-03:00",
+    "offset_minutes": -180,
+    "runtime_zoneinfo_ok": true
+  },
+  "site_wgs84": {
+    "lat": -46.0627727,
+    "lon": -72.595957
+  },
+  "grid_convergence_deg": -1.7316,
+  "presets": {
+    "summer": {
+      "date": "2026-12-21",
+      "timezone": "America/Coyhaique",
+      "utc_offset": "-03:00",
+      "sunrise_minutes": 355.7,
+      "sunrise_time": "05:56",
+      "sunrise_azimuth_deg": 126.0,
+      "solar_noon_minutes": 828.7,
+      "solar_noon_time": "13:49",
+      "solar_noon_altitude_deg": 67.38,
+      "solar_noon_azimuth_deg": 360.0,
+      "sunset_minutes": 1301.7,
+      "sunset_time": "21:42",
+      "sunset_azimuth_deg": 234.0,
+      "astronomical_day_hours": 15.77,
+      "terrain_sun_hours_median": 13.0,
+      "terrain_sun_hours_min": 1.5,
+      "terrain_sun_hours_max": 15.5,
+      "label": "Solsticio de verano (Sur)"
+    },
+    "equinox": {
+      "date": "2026-03-20",
+      "timezone": "America/Coyhaique",
+      "utc_offset": "-03:00",
+      "sunrise_minutes": 472.5,
+      "sunrise_time": "07:53",
+      "sunrise_azimuth_deg": 91.2,
+      "solar_noon_minutes": 838.0,
+      "solar_noon_time": "13:58",
+      "solar_noon_altitude_deg": 44.08,
+      "solar_noon_azimuth_deg": 0.1,
+      "sunset_minutes": 1203.2,
+      "sunset_time": "20:03",
+      "sunset_azimuth_deg": 269.1,
+      "astronomical_day_hours": 12.18,
+      "terrain_sun_hours_median": 9.5,
+      "terrain_sun_hours_min": 0.0,
+      "terrain_sun_hours_max": 12.0,
+      "label": "Equinoccio (Otoño / Primavera)"
+    },
+    "winter": {
+      "date": "2026-06-21",
+      "timezone": "America/Coyhaique",
+      "utc_offset": "-03:00",
+      "sunrise_minutes": 573.5,
+      "sunrise_time": "09:34",
+      "sunrise_azimuth_deg": 56.1,
+      "solar_noon_minutes": 832.4,
+      "solar_noon_time": "13:52",
+      "solar_noon_altitude_deg": 20.5,
+      "solar_noon_azimuth_deg": 0.0,
+      "sunset_minutes": 1091.3,
+      "sunset_time": "18:11",
+      "sunset_azimuth_deg": 303.9,
+      "astronomical_day_hours": 8.63,
+      "terrain_sun_hours_median": 6.0,
+      "terrain_sun_hours_min": 0.0,
+      "terrain_sun_hours_max": 8.5,
+      "label": "Solsticio de invierno (Sur)"
+    }
+  },
+  "notes": {
+    "surface": "DTM de terreno desnudo (bare-earth) a 2 m sin exageración vertical.",
+    "limitations": "No incluye sombra de árboles ni edificaciones (requiere DSM filtrado/alturas de copa) ni obstrucción por cordones montañosos regionales fuera de la huella del DTM. Las horas de sol directo representan potencial topográfico de cielo despejado, no meteorología observada."
+  }
+}

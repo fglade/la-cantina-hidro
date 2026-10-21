@@ -1,0 +1,91 @@
+{
+  "preprocessing_version": "4.0.0",
+  "crs": "EPSG:32718",
+  "crs_wgs84": "EPSG:4326",
+  "native_geotransform": [
+    685564.91876,
+    0.25618,
+    0.0,
+    4896775.68034,
+    0.0,
+    -0.25618
+  ],
+  "analysis_geotransform": [
+    685564.91876,
+    2.0,
+    0.0,
+    4896775.68034,
+    0.0,
+    -2.0
+  ],
+  "bounds_utm": {
+    "left": 685564.91876,
+    "bottom": 4895510.151140001,
+    "right": 686334.48348,
+    "top": 4896775.68034
+  },
+  "bounds_wgs84": {
+    "west": -72.60101362979283,
+    "south": -46.06879128395134,
+    "east": -72.59057829142861,
+    "north": -46.057202026883566
+  },
+  "overlay_bounds_latlon": [
+    [
+      -46.068796143459814,
+      -72.60101362979283
+    ],
+    [
+      -46.05720190832037,
+      -72.59057337254187
+    ]
+  ],
+  "site_centroid_wgs84": [
+    -72.595796,
+    -46.062997
+  ],
+  "grid_convergence_deg": -1.7318,
+  "native_resolution_m": 0.25618,
+  "analysis_resolution_m": 2.0,
+  "grid_shape": [
+    633,
+    385
+  ],
+  "vertical_units": "m",
+  "vertical_datum_status": "Cotas relativas del levantamiento local DTM (m); sin datum vertical geodésico oficial (m s. n. m.) certificado.",
+  "quantities_distinction": {
+    "contour_interval_m": 1.0,
+    "native_raster_pixel_size_m": 0.25618,
+    "analysis_grid_spacing_m": 2.0,
+    "web_contour_simplification_tolerance_m": 0.75,
+    "survey_vertical_accuracy": "No acreditada en metadatos del levantamiento original; no inferir precisión submétrica certificada."
+  },
+  "valid_data_mask_summary": {
+    "valid_cells": 226831,
+    "total_cells": 243705,
+    "valid_grid_pct": 93.08,
+    "property_area_ha": 104.57,
+    "property_coverage_pct": 50.65,
+    "full_valid_area_ha": 90.73,
+    "elev_min_m": 322.45,
+    "elev_max_m": 544.09,
+    "slope_median_pct": 28.5,
+    "slope_p90_pct": 68.1
+  },
+  "source_identity": {
+    "dtm_raster": "LA_CANTINA_dtm.tif",
+    "dsm_raster": "LA_CANTINA_dsm.tif (superficie; no usado para diseño vial ni hidráulico)",
+    "contours_vector": "LA_CANTINA_elev1m_res100cm_size20_DTM.shp",
+    "contour_feature_count": 512,
+    "hydrography_vector": "hidro.shp (6 cauces completos)",
+    "property_boundary": "20231207_deslinde_original.kml",
+    "subdivision_lots": "20260408_parelas_caminas_kml.kml (10 lotes; CAMINOS excluidos)"
+  },
+  "available_surfaces": [
+    "hillshade",
+    "hypsometric",
+    "slope",
+    "aspect"
+  ],
+  "missing_inputs": []
+}
